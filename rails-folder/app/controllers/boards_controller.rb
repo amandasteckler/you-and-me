@@ -11,7 +11,8 @@ class BoardsController < ApplicationController
 
   def show
     board = Board.find(params[:id])
-    render json: {board: board}
+    posts = board.user_boards.map {|user_board| user_board.posts }
+    render json: {board: board, posts: posts}
   end
 
   def index

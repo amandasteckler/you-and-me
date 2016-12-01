@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Posts from './Posts'
 
 class Board extends Component {
 
@@ -20,6 +21,7 @@ class Board extends Component {
 
       <div>
         <h2>{this.props.board.title}</h2>
+        <Posts />
       </div>
     </div>)
   }
