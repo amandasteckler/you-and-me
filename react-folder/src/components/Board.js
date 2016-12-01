@@ -4,7 +4,7 @@ function Board (props) {
 
   return (
     <div>
-      <h1>title</h1>
+      <h1>blah</h1>
     </div>)
 
 }
