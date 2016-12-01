@@ -1,0 +1,22 @@
+scott_drew_board = Board.create(title: "Scott & Drew: BFFs")
+amanda_drew_board = Board.create(title: "Amanda & Drew: BFFFFFFs")
+
+scott = User.create(name: "Scott", email: "scott@s.com", password_digest: "scott0")
+drew = User.create(name: "Drew", email: "drew@d.com", password_digest: "drew1")
+amanda = User.create(name: "Amanda", email: "amanda@a.com", password_digest: "am1")
+
+amanda_board_connection = UserBoard.create(user_id: 3, board_id: 2)
+drewamanda_board_connection = UserBoard.create(user_id: 2, board_id: 2)
+
+scott_board_connection = UserBoard.create(user_id: 1, board_id: 1)
+drew_board_connection = UserBoard.create(user_id: 2, board_id: 1)
+
+scott_first_post = Post.create(content: "Hey Drew. Hope you're well.", user_id: 1)
+scott_second_post = Post.create(content: "I'm sleepy. Are you?", user_id: 1)
+
+drew_first_post = Post.create(content: "Scott. Hope you're well too.", user_id: 2)
+drew_second_post = Post.create(content: "You're a great friend.", user_id: 2)
+
+
+amanda_first_post = Post.create(content: "Hey Drew. Wassup.", user_id: 3)
+drew_third_post = Post.create(content: "Hey Amanda, wassuuuuuuppp.", user_id: 2)
