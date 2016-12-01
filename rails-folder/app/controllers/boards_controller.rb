@@ -11,10 +11,12 @@ class BoardsController < ApplicationController
 
   def show
     board = Board.find(params[:id])
+    render json: {board: board}
   end
 
   def index
     @boards = Board.all
+    render json: {boards: @boards}
   end
 
   def update

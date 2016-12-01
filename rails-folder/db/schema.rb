@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "content"
-    t.integer  "user_id"
+    t.integer  "user_board_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
