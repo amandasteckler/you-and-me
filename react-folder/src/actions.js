@@ -4,10 +4,16 @@ import $ from 'jquery'
 export function boardRequest(id) {
   let board = $.ajax({
      url: ROOT_URL,
-     type: 'GET',
+     type: 'GET'
     //  data: { item: item },
-     success: () => { return{type:"FETCH_BOARD", payload: board}}
+    //  success: () => { return{type:"FETCH_BOARD", payload: board}}
   })
+  return function(dispatch) {
+    board.then((data)=>{
+      dispatch({type:"FETCH_BOARD", payload: data})
+    })
+  }
+  // return {type:"FETCH_BOARD", payload: board}
 }
 
 // export function fetchVideos(searchTerm){

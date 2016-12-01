@@ -1,24 +1,28 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-function Board (props) {
+class Board extends Component {
 
-  function handleOnSubmit(event) {
+  handleOnSubmit(event) {
     event.preventDefault();
-    debugger
     this.props.boardRequest(1);
   }
 
-  return (
+  render() {
+    return (
     <div>
       <h1>blah</h1>
-      <form onSubmit={handleOnSubmit.bind(this)}>
+      <form onSubmit={this.handleOnSubmit.bind(this)}>
         <button >Hit ME</button>
       </form>
-    </div>)
 
+      <div>
+        <h2>{this.props.board.title}</h2>
+      </div>
+    </div>)
+  }
 }
 
 function mapDispatchToProps(dispatch){

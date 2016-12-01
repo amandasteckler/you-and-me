@@ -3,12 +3,13 @@ import { combineReducers } from 'redux'
 function reducer(state = {board: {}}, action) {
   switch (action.type) {
     case 'FETCH_BOARD':
-      return Object.assign({}, state, {board: action.payload})
+      debugger
+      return Object.assign({}, state, {board: action.payload.board})
     default:
       return state
   }
 }
 
-const rootReducer = combineReducers({reducer})
+// const rootReducer = combineReducers({reducer})
 
-export default rootReducer
+export default reducer
