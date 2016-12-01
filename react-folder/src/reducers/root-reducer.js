@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux'
 
-function reducer(state = {}, action) {
+function reducer(state = {board: {}}, action) {
   switch (action.type) {
-    case 'true':
-      return "blah"
-
+    case 'FETCH_BOARD':
+      return Object.assign({}, state, {board: action.payload})
     default:
       return state
   }
