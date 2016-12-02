@@ -20,8 +20,8 @@ class Board extends Component {
       </form>
 
       <div>
-        <h2>{this.props.board.title}</h2>
-        <Posts />
+        {/* <h2>{this.props.board.title}</h2> */}
+        {/* <Posts /> */}
       </div>
     </div>)
   }

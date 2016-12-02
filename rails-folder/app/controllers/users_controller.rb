@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user, only: [:create]
+
   def new
     user = User.new(user_params)
   end
@@ -8,9 +10,9 @@ class UsersController < ApplicationController
 
     if user.save
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt}
+      render json: {jwt: jwt, current_user: user.id}
     else
-      render json: {error: "user is not unique"}
+      render json: {error: "user is not unique"}, status: 404
     end
   end
 

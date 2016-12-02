@@ -8,9 +8,12 @@ class App extends Component {
     return (
       <div className="App">
         <Board />
-          <Link to={'/'}>Home</Link>
-          <Link to={'/signup'}>Signup</Link>
-          
+          <p><Link to={'/'}>Home</Link></p>
+          <p><Link to={'/signup'}>Signup</Link></p>
+          <p><Link to={'/login'}>Login</Link></p>
+
+          {this.props.children}
+
       </div>
     );
   }
