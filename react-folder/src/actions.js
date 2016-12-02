@@ -8,6 +8,8 @@ export function createUser(formValues) {
   return function (dispatch) {
     dispatch({type: 'CREATING_USER'})
 
+
+
     $.ajax({
      url: 'http://localhost:3000/users',
      type: 'POST',
@@ -19,7 +21,6 @@ export function createUser(formValues) {
      dispatch({type: 'LOGIN_USER', current_user: response.current_user})
      browserHistory.push('/profile')
    })
-
   }
 }
 

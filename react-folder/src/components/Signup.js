@@ -7,7 +7,7 @@ class Signup extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {email: "", password: ""}
+    this.state = {name: "", email: "", password: ""}
   }
 
   handleNameChange(event){
@@ -32,12 +32,15 @@ class Signup extends Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label> Name</label>
+          <label>Name</label>
           <input type="text" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
-          <label> Email</label>
+
+          <label>Email</label>
           <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
-          <label> Password</label>
+
+          <label>Password</label>
           <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+
           <input type="submit" />
         </form>
       </div>

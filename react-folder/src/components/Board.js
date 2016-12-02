@@ -6,23 +6,25 @@ import Posts from './Posts'
 
 class Board extends Component {
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.boardRequest(1);
-  }
+  // handleOnSubmit(event) {
+  //   event.preventDefault();
+  //   this.props.boardRequest(1);
+  // }
 
   render() {
     return (
     <div>
-      <h1>blah</h1>
+      {/*
+        <h1>blah</h1>
       <form onSubmit={this.handleOnSubmit.bind(this)}>
         <button >Hit ME</button>
       </form>
 
       <div>
-        {/* <h2>{this.props.board.title}</h2> */}
-        {/* <Posts /> */}
-      </div>
+        <h2>{this.props.board.title}</h2>
+        <Posts />
+
+      </div>*/}
     </div>)
   }
 }

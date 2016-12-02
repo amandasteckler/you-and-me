@@ -1,21 +1,20 @@
 import { combineReducers } from 'redux'
 
-function reducer(state = {board: {}, posts: []}, action) {
-  debugger
-  switch (action.type) {
-    case 'FETCH_BOARD':
-
-    // let posts = action.payload.posts.map((array) => {
-    //   array.map((postObject) => {
-    //     return postObject
-    //   })
-    // })
-      let posts = action.payload.posts
-      return Object.assign({}, state, {board: action.payload.board, posts: posts})
-    default:
-      return state
-  }
-}
+// function reducer(state = {board: {}, posts: []}, action) {
+//   switch (action.type) {
+//     case 'FETCH_BOARD':
+//
+//     // let posts = action.payload.posts.map((array) => {
+//     //   array.map((postObject) => {
+//     //     return postObject
+//     //   })
+//     // })
+//       let posts = action.payload.posts
+//       return Object.assign({}, state, {board: action.payload.board, posts: posts})
+//     default:
+//       return state
+//   }
+// }
 
 function signup(state = {creating_user: false, current_user: null}, action){
   switch (action.type) {
@@ -28,6 +27,6 @@ function signup(state = {creating_user: false, current_user: null}, action){
   }
 }
 
-const rootReducer = combineReducers({reducer, signup})
+// const rootReducer = combineReducers({reducer, signup})
 
-export default rootReducer
+export default signup
