@@ -1821,3 +1821,32 @@ Filter chain halted as :authenticate_user rendered or redirected
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/boards/2" for ::1 at 2016-12-02 13:17:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-02 13:17:44 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-02 13:17:45 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-02 13:32:47 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
