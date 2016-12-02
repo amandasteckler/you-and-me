@@ -6,10 +6,14 @@ import { connect } from 'react-redux'
 class Posts extends Component {
 
   render() {
+    let postList = this.props.posts.map((post)=> {
+      return <p>{post.content}</p>
+    })
+
     return (
 
     <div>
-      {this.props.posts}
+      {postList}
     </div>
     )
   }

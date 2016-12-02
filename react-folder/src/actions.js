@@ -1,4 +1,4 @@
-const ROOT_URL = 'http://localhost:3000/boards/1'
+const ROOT_URL = 'http://localhost:3000/boards/2'
 import $ from 'jquery'
 
 export function boardRequest(id) {
