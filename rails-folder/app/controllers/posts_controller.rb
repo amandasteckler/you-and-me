@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    byebug
     post = Post.new(post_params)
 
     if post.save
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :user_id)
+    params.require(:post).permit(:content, :user_board_id)
 
   end
 end

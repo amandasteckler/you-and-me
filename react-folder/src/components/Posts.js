@@ -8,7 +8,7 @@ class Posts extends Component {
   render() {
 
     let postList = this.props.posts.map((post)=> {
-      return <p>{post.user.name}: {post.post.content}</p>
+      return <p><em>{post.user.name}</em>: {post.post.content}</p>
     })
 
     return (
@@ -25,7 +25,7 @@ class Posts extends Component {
 // }
 
 function mapStateToProps(state) {
-  return {posts: state.posts}
+  return {posts: state.reducer.posts}
 }
 
 export default connect(mapStateToProps)(Posts)

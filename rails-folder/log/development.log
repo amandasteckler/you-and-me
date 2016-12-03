@@ -2882,3 +2882,362 @@ Processing by BoardsController#show as */*
 Completed 200 OK in 23ms (Views: 4.6ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/boards/1" for ::1 at 2016-12-03 15:09:26 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 49ms (Views: 6.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/posts" for ::1 at 2016-12-03 15:21:42 -0500
+Processing by PostsController#index as */*
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Completed 200 OK in 21ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:29:44 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 95ms (Views: 9.7ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:32:35 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (3.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 54ms (Views: 8.8ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:43:30 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{}}
+Completed 400 Bad Request in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: post):
+  
+app/controllers/posts_controller.rb:32:in `post_params'
+app/controllers/posts_controller.rb:7:in `create'
+Started GET "/boards/1" for ::1 at 2016-12-03 15:50:36 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 78ms (Views: 9.9ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:51:00 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 94ms (Views: 17.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:52:11 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (2.0ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 120ms (Views: 57.3ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:53:24 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 129ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:53:30 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.8ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 33ms (Views: 5.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:54:57 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 68ms (Views: 10.5ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:56:25 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 13ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:56:29 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.7ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 27ms (Views: 5.6ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:56:52 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 4ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:56:55 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 49ms (Views: 20.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:58:47 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 37ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:58:50 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 37ms (Views: 6.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 15:59:24 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 10ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 15:59:27 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 28ms (Views: 5.9ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 16:00:30 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (5.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 40ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 16:00:44 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 115ms (Views: 21.5ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 16:01:06 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 204 No Content in 14ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 16:01:08 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 55ms (Views: 14.0ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-03 16:08:16 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.9ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 75ms (Views: 25.1ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 16:08:20 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started POST "/posts" for ::1 at 2016-12-03 16:08:21 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started POST "/posts" for ::1 at 2016-12-03 16:08:26 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started GET "/boards/1" for ::1 at 2016-12-03 16:10:55 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 50ms (Views: 12.9ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 16:10:57 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello", "user_id"=>1}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started GET "/boards/1" for ::1 at 2016-12-03 16:11:38 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 162ms (Views: 9.0ms | ActiveRecord: 43.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-03 16:11:41 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started POST "/posts" for ::1 at 2016-12-03 16:11:51 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'user_id' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started POST "/posts" for ::1 at 2016-12-03 16:12:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello world", "user_id"=>1}}

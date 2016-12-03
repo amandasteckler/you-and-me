@@ -3,6 +3,7 @@ import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Posts from './Posts'
+import PostForm from './PostForm'
 
 class Board extends Component {
 
@@ -12,7 +13,8 @@ class Board extends Component {
   }
 
   render() {
-    let usersTitle = this.props.board.users.map((user) => {
+
+     let usersTitle =this.props.board.users.map((user) => {
       return user.name
     }).join(" & ")
 
@@ -31,6 +33,7 @@ class Board extends Component {
       <h2>{usersTitle}</h2>
     </div>
 
+    <PostForm />
     <Posts />
   </div>)
   }
@@ -41,7 +44,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-  return {board: state.board}
+  return {board: state.reducer.board}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)
