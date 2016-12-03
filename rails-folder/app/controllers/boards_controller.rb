@@ -10,10 +10,15 @@ class BoardsController < ApplicationController
   end
 
   def show
+    # tried ordering when pulling from DB, difficult because selection will be two arrays from users
     board = Board.find(params[:id])
-    posts = board.user_boards.map {|user_board| user_board.posts }
-    posts = posts.flatten
-    render json: {board: board, posts: posts}
+    users = board.users
+    rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
+    # [{Post}, {}, {}]
+    order_posts = rawPosts.sort_by {|post| post.created_at}
+    orderedWithUser = order_posts.map {|post| {post: post, user: post.user_board.user}}
+
+    render json: {board: {board: board, users: users}, posts: orderedWithUser}
   end
 
   def index

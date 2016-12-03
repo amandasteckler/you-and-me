@@ -6,26 +6,33 @@ import Posts from './Posts'
 
 class Board extends Component {
 
-  // handleOnSubmit(event) {
-  //   event.preventDefault();
-  //   this.props.boardRequest(1);
-  // }
+  handleOnSubmit(event) {
+    event.preventDefault();
+    this.props.boardRequest(1);
+  }
 
   render() {
-    return (
+    let usersTitle = this.props.board.users.map((user) => {
+      return user.name
+    }).join(" & ")
+
+    usersTitle = "This board is between: " + usersTitle
+
+    return (<div>
     <div>
-      {/*
-        <h1>blah</h1>
+      <p>This button will be in the profile page linking to a specific board</p>
       <form onSubmit={this.handleOnSubmit.bind(this)}>
-        <button >Hit ME</button>
+        <button >Board Request - Board 1</button>
       </form>
+    </div>
 
-      <div>
-        <h2>{this.props.board.title}</h2>
-        <Posts />
+    <div>
+      <h1>{this.props.board.board.title}</h1>
+      <h2>{usersTitle}</h2>
+    </div>
 
-      </div>*/}
-    </div>)
+    <Posts />
+  </div>)
   }
 }
 

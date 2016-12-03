@@ -12,9 +12,8 @@ scott_board_connection = UserBoard.create(user_id: scott.id, board_id: scott_dre
 drew_board_connection = UserBoard.create(user_id: drew.id, board_id: scott_drew_board.id)
 
 scott_first_post = Post.create(content: "Hey Drew. Hope you're well.", user_board_id: scott_board_connection.id)
-scott_second_post = Post.create(content: "I'm sleepy. Are you?", user_board_id: scott_board_connection.id)
-
 drew_first_post = Post.create(content: "Scott. Hope you're well too.", user_board_id: drew_board_connection.id)
+scott_second_post = Post.create(content: "I'm sleepy. Are you?", user_board_id: scott_board_connection.id)
 drew_second_post = Post.create(content: "You're a great friend.", user_board_id: drew_board_connection.id)
 
 
