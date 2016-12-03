@@ -2,8 +2,13 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import postStatus from '../actions/postStatus'
+import currentUserBoardId from '../actions/currentUserBoardId'
 
 class PostForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = {content: ""}
+  }
 
   handleStatusChange(event){
     this.setState({content: event.target.value})
@@ -11,9 +16,10 @@ class PostForm extends Component {
 
   handleOnSubmit(event){
     event.preventDefault();
-    let values = Object.assign({}, this.state, this.props)
-    
+    let userBoardId = currentUserBoardId(this.props.user_boards, this.props.current_user)
+    let values = Object.assign({}, this.state, {user_board_id: userBoardId})
     this.props.postStatus(values)
+    this.setState({content: ""})
   }
 
   render() {
@@ -21,7 +27,7 @@ class PostForm extends Component {
       <div>
         <form onSubmit={this.handleOnSubmit.bind(this)}>
           <label>Post a status</label>
-          <input type="text" onChange={this.handleStatusChange.bind(this)}/>
+          <input type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
           <input type="submit" value="Post" />
         </form>
       </div>
@@ -32,7 +38,7 @@ class PostForm extends Component {
 
 function mapStateToProps(state){
   // SELECTION WILL NEED TO CHANGE ONCE LOGIN IS COMPLETE!!!!!
-  return {current_user: state.signup.current_user}
+  return {current_user: state.signup.current_user, user_boards: state.reducer.board.user_boards}
 }
 
 function mapDispatchToProps(dispatch){

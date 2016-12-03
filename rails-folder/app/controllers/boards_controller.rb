@@ -18,7 +18,7 @@ class BoardsController < ApplicationController
     order_posts = rawPosts.sort_by {|post| post.created_at}
     orderedWithUser = order_posts.map {|post| {post: post, user: post.user_board.user}}
 
-    render json: {board: {board: board, users: users}, posts: orderedWithUser}
+    render json: {board: {board: board, users: users, user_boards: board.user_boards}, posts: orderedWithUser}
   end
 
   def index

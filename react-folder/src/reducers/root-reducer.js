@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-function reducer(state = {board: {board:{}, users:[]}, posts: []}, action) {
+function reducer(state = {board: {board:{}, users:[], user_board: {}}, posts: []}, action) {
   switch (action.type) {
     case 'FETCH_BOARD':
 

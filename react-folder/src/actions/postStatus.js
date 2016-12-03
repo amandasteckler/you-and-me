@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router'
 import $ from 'jquery'
 
 export default function postStatus(formValues){
@@ -7,13 +6,11 @@ export default function postStatus(formValues){
     $.ajax({
      url: 'http://localhost:3000/posts',
      type: 'POST',
-     data: JSON.stringify({post: {content: formValues.content, user_id: formValues.current_user}}),
+     data: JSON.stringify({post: {content: formValues.content, user_board_id: formValues.user_board_id}}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
    })
-
-   dispatch({type: 'SUBMIT_POST'}, {})
-
+   dispatch({type:"SUBMIT_POST"})
   }
 }
 
