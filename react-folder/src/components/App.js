@@ -8,12 +8,14 @@ class App extends Component {
     return (
       <div className="App">
         <Board />
-          <p><Link to={'/'}>Home</Link></p>
-          <p><Link to={'/signup'}>Signup</Link></p>
-          <p><Link to={'/login'}>Login</Link></p>
+        <div className="youandme">✏️ You and Me ✏️</div>
+          <p className="navbar"><Link className="nav" to={'/'}>Home</Link>
+          <Link className="nav" to={'/signup'}>Signup</Link>
+          <Link className="nav" to={'/login'}>Login</Link></p>
 
+          <div className="childrens">
           {this.props.children}
-
+          </div>
       </div>
     );
   }

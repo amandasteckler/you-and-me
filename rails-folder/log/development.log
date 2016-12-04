@@ -2117,3 +2117,156 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 1.1ms)
 
 
+Started POST "/users" for ::1 at 2016-12-04 12:23:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"holli", "email"=>"h@h.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (31.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (104.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "holli"], ["email", "h@h.com"], ["password_digest", "$2a$10$qD9wy5ZOr7VJpqZIHsYWGuEEjokrVhHjBrEsSOn4.teq7JswTUZC6"], ["created_at", 2016-12-04 17:23:13 UTC], ["updated_at", 2016-12-04 17:23:13 UTC]]
+  [1m[35m (67.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 405ms (Views: 0.3ms | ActiveRecord: 212.3ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:27:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"h", "email"=>"h@n.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "h"], ["email", "h@n.com"], ["password_digest", "$2a$10$wK5kuP8GY92s9GlGs/3ije8iNJXFP/G4T8eQVtgb52q.BGdCbIaiu"], ["created_at", 2016-12-04 17:27:36 UTC], ["updated_at", 2016-12-04 17:27:36 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 90ms (Views: 0.2ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:28:04 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"jklj", "email"=>"jklj@jk.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "jklj"], ["email", "jklj@jk.com"], ["password_digest", "$2a$10$wyeAh6VcfOh1tRAhPoe7dOkpGMMzD9XI2H3ZWGk.BRjod4oeaWEXG"], ["created_at", 2016-12-04 17:28:04 UTC], ["updated_at", 2016-12-04 17:28:04 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 79ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:29:26 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"kat", "email"=>"kat@kat.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "kat"], ["email", "kat@kat.com"], ["password_digest", "$2a$10$SrYc6npth96twXFKCYGkkOiidJmMuaTt6uJRHhxAGFeQDII4xtBaW"], ["created_at", 2016-12-04 17:29:26 UTC], ["updated_at", 2016-12-04 17:29:26 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 79ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:31:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"josh", "email"=>"josh@josh.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "josh"], ["email", "josh@josh.com"], ["password_digest", "$2a$10$KWrsMNH7x7IASCGDW/1gz.U.YvgjyAnhTiVLBgj7Og3O4dMeVZbmS"], ["created_at", 2016-12-04 17:31:28 UTC], ["updated_at", 2016-12-04 17:31:28 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 89ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:32:55 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"amanda", "email"=>"amanda@a.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "amanda"], ["email", "amanda@a.com"], ["password_digest", "$2a$10$hXPDibuYV0jmXgqcW9kZCOQRTVW0GzIsCn1T1zo6w1gEw0jscG7Hm"], ["created_at", 2016-12-04 17:32:55 UTC], ["updated_at", 2016-12-04 17:32:55 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 82ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:38:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"Amanda", "email"=>"amanda@i.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amanda"], ["email", "amanda@i.com"], ["password_digest", "$2a$10$av9NI5qKWPWEAcgGh8Q0MOEKSxU4YS8iDJDvUOIG1TMAuTJb2.wLi"], ["created_at", 2016-12-04 17:38:25 UTC], ["updated_at", 2016-12-04 17:38:25 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 12:41:16 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"h", "email"=>"h@i.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "h"], ["email", "h@i.com"], ["password_digest", "$2a$10$Y1GGhtAPBeCn4Y37oDlkTuYHVzjPFpiWn0ZAiz2cnfDJ8Y7fGVcUm"], ["created_at", 2016-12-04 17:41:16 UTC], ["updated_at", 2016-12-04 17:41:16 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 78ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 13:14:42 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"AMANDA", "email"=>"amanda@j.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "AMANDA"], ["email", "amanda@j.com"], ["password_digest", "$2a$10$smhWxbjYKWW6zFE7MtmfAOTI6XXFgVlK/HIu8cgeOfHpDW47XmCnG"], ["created_at", 2016-12-04 18:14:42 UTC], ["updated_at", 2016-12-04 18:14:42 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 100ms (Views: 1.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 13:17:29 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"Holli", "email"=>"holli@h.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Holli"], ["email", "holli@h.com"], ["password_digest", "$2a$10$Ty9CCYE9rbIIro0z98fqcuPuB5tJyqw58DIB1nCdRHErt3d/JvKWa"], ["created_at", 2016-12-04 18:17:29 UTC], ["updated_at", 2016-12-04 18:17:29 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 82ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 13:17:43 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"holli", "email"=>"holli@h.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "holli"], ["email", "holli@h.com"], ["password_digest", "$2a$10$gCSp94TMAlwx8Piw5WW5FuPdSrneFbBb5vWSZcLVlVmPdDdre03f6"], ["created_at", 2016-12-04 18:17:43 UTC], ["updated_at", 2016-12-04 18:17:43 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 13:23:26 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"holli", "email"=>"h@h.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "holli"], ["email", "h@h.com"], ["password_digest", "$2a$10$vxaOJ5lXFlkJKgg62rNk4OV/pXPUXPq8uq8/WqIPxJrWFT466xGO."], ["created_at", 2016-12-04 18:23:27 UTC], ["updated_at", 2016-12-04 18:23:27 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 83ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-12-04 13:25:19 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/amandasteckler/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/amandasteckler/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (7.5ms)
+Completed 200 OK in 172ms (Views: 137.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 13:38:16 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"drew", "email"=>"drew@drew.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "drew"], ["email", "drew@drew.com"], ["password_digest", "$2a$10$f6kPTleeSzEt4s1IRFi/v.K17OsBH0uTXj.qMyo3Ve4cpW/SJDmn6"], ["created_at", 2016-12-04 18:38:16 UTC], ["updated_at", 2016-12-04 18:38:16 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 83ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 14:06:49 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"amanda", "email"=>"amanda@amanda.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "amanda"], ["email", "amanda@amanda.com"], ["password_digest", "$2a$10$5jI/CUefQnXw3pAQzV8sxOVOBd8.uPRCNoR06HBsTkXB1q.Me/s/K"], ["created_at", 2016-12-04 19:06:49 UTC], ["updated_at", 2016-12-04 19:06:49 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 100ms (Views: 1.2ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 14:13:50 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"amand", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "amand"], ["email", "a@a.com"], ["password_digest", "$2a$10$Ua9/lT0ibZPQQqCcXvQoSekVMyA1TrzB/b5ii8Io4wJs1kdfwevHe"], ["created_at", 2016-12-04 19:13:50 UTC], ["updated_at", 2016-12-04 19:13:50 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 82ms (Views: 0.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for ::1 at 2016-12-04 14:15:04 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"drew", "email"=>"drew@drew.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "drew"], ["email", "drew@drew.com"], ["password_digest", "$2a$10$YRVR1EVmd9DgP9ukE8UPcOOCfYFgO7AsPnRJbBM2yr1FGccsQJwfC"], ["created_at", 2016-12-04 19:15:04 UTC], ["updated_at", 2016-12-04 19:15:04 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 80ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
