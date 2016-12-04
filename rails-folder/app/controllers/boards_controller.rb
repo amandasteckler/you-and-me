@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
     users = board.users
     rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
     # [{Post}, {}, {}]
-    order_posts = rawPosts.sort_by {|post| post.created_at}
+    order_posts = rawPosts.sort_by {|post| post.created_at}.reverse
     orderedWithUser = order_posts.map {|post| {post: post, user: post.user_board.user}}
 
     render json: {board: {board: board, users: users, user_boards: board.user_boards}, posts: orderedWithUser}

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import postStatus from '../actions/postStatus'
 import currentUserBoardId from '../actions/currentUserBoardId'
+import { boardRequest } from '../actions'
 
 class PostForm extends Component {
   constructor(props){
@@ -19,6 +20,7 @@ class PostForm extends Component {
     let userBoardId = currentUserBoardId(this.props.user_boards, this.props.current_user)
     let values = Object.assign({}, this.state, {user_board_id: userBoardId})
     this.props.postStatus(values)
+    this.props.boardRequest(this.props.user_boards[0].board_id)
     this.setState({content: ""})
   }
 
@@ -42,7 +44,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ postStatus }, dispatch)
+  return bindActionCreators({ postStatus, boardRequest }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
