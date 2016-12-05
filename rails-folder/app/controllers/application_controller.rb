@@ -10,7 +10,6 @@ class ApplicationController < ActionController::API
  end
 
  def current_user
-   byebug
    User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"])["user_id"]) if request.env["HTTP_AUTHORIZATION"].present?
  end
 end

@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:show]
+
   def new
     board = Board.new(board_params)
   end
@@ -10,6 +12,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    byebug
     # tried ordering when pulling from DB, difficult because selection will be two arrays from users
     board = Board.find(params[:id])
     users = board.users

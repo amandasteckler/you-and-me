@@ -2,20 +2,24 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {Link} from 'react-router'
+import { boardRequest } from '../actions'
 // import auth from '../../lib/auth'
 
 class Profile extends Component {
 
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {}
+  // }
+
   handleOnClick(event) {
-    debugger
     event.preventDefault();
-    this.props.boardRequest(1);
+    this.props.boardRequest(event.target.attributes.value.value);
   }
 
   render(){
-    debugger
     let boards = this.props.profile.boards.map((board) => {
-      return BOOGERS
+      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.board_id}>{board.title}</Link></li>
     })
 
     return(
@@ -25,7 +29,6 @@ class Profile extends Component {
         <div>
           <ul>
             {boards}
-            <li><Link to={url}>THIS IS A FUCKING LINK</Link></li>
           </ul>
         </div>
       </div>
@@ -42,7 +45,11 @@ function mapStateToProps(state) {
   return {profile: state.profile.current_user}
 }
 
-export default connect(mapStateToProps)(Profile)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ boardRequest }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
 
 // const connectingComponent = connect(mapStateToProps)(Profile)
 //

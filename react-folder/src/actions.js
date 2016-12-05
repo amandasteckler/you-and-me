@@ -40,19 +40,19 @@ export function logUserIn(formValues) {
   }
 }
 
-export function boardRequest(id) {
-  let board = $.ajax({
-     url: 'http://localhost:3000/boards/1',
+export function boardRequest(formValue) {
+  return function(dispatch) {
+  $.ajax({
+     url: `http://localhost:3000/boards/${formValue}`,
      type: 'GET'
     //  data: { item: item },
     //  success: () => { return{type:"FETCH_BOARD", payload: board}}
+  }).done(function(response){
+    debugger;
+    dispatch({type:"FETCH_BOARD", payload: response})
+    browserHistory.push('/board')
   })
-  return function(dispatch) {
-    board.then((data)=>{
-      dispatch({type:"FETCH_BOARD", payload: data})
-    })
   }
-  // return {type:"FETCH_BOARD", payload: board}
 }
 
 
