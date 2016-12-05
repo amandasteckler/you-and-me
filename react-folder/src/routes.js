@@ -11,6 +11,6 @@ export default (
    <Route path="signup" component={Signup} />
    <Route path="profile" component={Profile} />
    <Route path="login" component={Login}/>
-   <Route path="board" component={Board} />x
+   <Route path="board" component={Board} />
  </ Route>
 );
