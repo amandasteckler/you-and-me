@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       jwt = Auth.issue({user_id: user.id})
       render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name.capitalize!}}
     else
+      # I really like this idea, but instead what I would do is send back a list of the user errors, 
+      # so render json: {errors: user.errors}
       render json: {error: "user is not unique"}, status: 404
     end
   end
