@@ -15,11 +15,12 @@ class Nav extends Component {
 
   render(){
     let formattedLinks = this.navList().map((item)=>{
-      return <p><Link to={item.URI}>{item.name}</Link></p>
+      return <Link className="nav" to={item.URI}>{item.name}</Link></p>
     })
     return(
       <div>
-        {formattedLinks}
+        <div className="youandme">✏️ You and Me ✏️</div>
+        <p className="navbar">{formattedLinks}</p>
       </div>
     )
   }

@@ -8,7 +8,8 @@ class Profile extends Component {
   render(){
     return(
       <div>
-        <h1>{this.props.profile}</h1>
+        <h1>Welcome, {this.props.profile.user_name}.</h1>
+        <p>Your Boards:</p>
       </div>
     )
   }

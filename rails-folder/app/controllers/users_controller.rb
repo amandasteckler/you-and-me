@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if user.save
       jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, current_user: user.id}
+      render json: {jwt: jwt, current_user: {user_id: user.id, user_name: user.name.capitalize!}}
     else
       render json: {error: "user is not unique"}, status: 404
     end
