@@ -6,3 +6,5 @@ export default function currentUserBoardId(userBoardsArray, currentUserId) {
   })
   return userBoardId[0]
 }
+
+// This doesn't feel like a separate action to me, I would probably just move this method into the action creator that now calls it (see earlier refactoring pull request).
