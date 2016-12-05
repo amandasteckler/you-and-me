@@ -13,7 +13,7 @@ class Board extends Component {
   }
 
   render() {
-
+      // JK: Not sure that this degree of formatting should be in the render method.       
      let usersTitle =this.props.board.users.map((user) => {
       return user.name
     }).join(" & ")
@@ -29,6 +29,7 @@ class Board extends Component {
     </div>
 
     <div>
+//     JK:        this feels weird that you have to do board.board.
       <h1>{this.props.board.board.title}</h1>
       <h2>{usersTitle}</h2>
     </div>
