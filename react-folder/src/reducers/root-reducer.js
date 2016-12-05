@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 
+// JK: This reducer is doing too much.  Each reducer should just manage one resource.
+
 function reducer(state = {board: {board:{}, users:[], user_board: {}}, posts: []}, action) {
   switch (action.type) {
     case 'FETCH_BOARD':
@@ -11,6 +13,8 @@ function reducer(state = {board: {board:{}, users:[], user_board: {}}, posts: []
       return state
   }
 }
+
+
 
 function signup(state = {creating_user: false, current_user: 1}, action){
   //current_user HARDCODED TO BE 1 by Drew for board tests
