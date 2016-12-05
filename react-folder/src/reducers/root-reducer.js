@@ -27,6 +27,15 @@ function signup(state = {creating_user: false, current_user: null}, action){
   }
 }
 
+function login(state = {creating_user: false, current_user:null}, action) {
+  switch (action.type) {
+    case 'LOGIN_USER':
+      return {...state, creating_user: false, current_user: action.current_user}
+    default:
+      return state
+  }
+}
+
 // const rootReducer = combineReducers({reducer, signup})
 
 export default signup

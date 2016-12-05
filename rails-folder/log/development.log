@@ -2117,3 +2117,39 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 1.1ms)
 
 
+Started POST "/users" for ::1 at 2016-12-03 11:23:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"scott", "email"=>"yeah", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "scott"], ["email", "yeah"], ["password_digest", "$2a$10$71DY64jAM/b6apWJHj0G/OwKiIoOv/xzJFAnJugXm2smQ.3XZ3MrG"], ["created_at", 2016-12-03 16:23:15 UTC], ["updated_at", 2016-12-03 16:23:15 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 105ms (Views: 0.2ms | ActiveRecord: 21.5ms)
+
+
+Started POST "/users" for ::1 at 2016-12-03 16:00:16 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"Scott T Lindquist", "email"=>"d", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scott T Lindquist"], ["email", "d"], ["password_digest", "$2a$10$nEAhsxpCg17D4yoRXGHIVu8J3qqqWEYvhgI4XHp/0.x1jtjeYIakG"], ["created_at", 2016-12-03 21:00:16 UTC], ["updated_at", 2016-12-03 21:00:16 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 78ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for ::1 at 2016-12-03 16:03:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"Scott", "email"=>"bob", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Scott"], ["email", "bob"], ["password_digest", "$2a$10$Dyc1EcS3aSudTAosSfyvY.OiAAr1.uLSicZcFchGYTruhJU9hw5Ry"], ["created_at", 2016-12-03 21:03:37 UTC], ["updated_at", 2016-12-03 21:03:37 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/users" for ::1 at 2016-12-03 17:15:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 404 Not Found in 12ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
