@@ -6,11 +6,19 @@ import { connect } from 'react-redux'
 class Profile extends Component {
 
   render(){
-    
+    debugger;
+
+    let boards = this.props.profile.boards.map((board) => {
+      return <li>{board.title}</li>
+    })
+
     return(
       <div>
         <h1>Welcome, {this.props.profile.user_name}.</h1>
-        <p>Your Boards:</p>
+        <h2>Your Boards:</h2>
+        <div>
+          <ul>{boards}</ul>
+        </div>
       </div>
     )
   }

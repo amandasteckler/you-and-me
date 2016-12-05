@@ -2,7 +2,7 @@ scott_drew_board = Board.create(title: "Scott & Drew: BFFs")
 amanda_drew_board = Board.create(title: "Amanda & Drew: BFFFFFFs")
 
 scott = User.create(name: "Scott", email: "scott@s.com", password_digest: "scott0")
-drew = User.create(name: "Drew", email: "drew@d.com", password_digest: "drew1")
+drew = User.create(name: "Drew", email: "drew@d.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 amanda = User.create(name: "Amanda", email: "amanda@a.com", password_digest: "am1")
 
 amanda_board_connection = UserBoard.create(user_id: amanda.id, board_id: amanda_drew_board.id)
