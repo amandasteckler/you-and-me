@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router'
 import $ from 'jquery'
 
-const ROOT_URL = 'http://localhost:3000/boards/2'
+const ROOT_URL = 'http://localhost:3000/boards/1'
 
 
 export function createUser(formValues) {
@@ -42,7 +42,7 @@ export function logUserIn(formValues, id) {
 
 export function boardRequest(id) {
   let board = $.ajax({
-     url: ROOT_URL,
+     url: 'http://localhost:3000/boards/1',
      type: 'GET'
     //  data: { item: item },
     //  success: () => { return{type:"FETCH_BOARD", payload: board}}
