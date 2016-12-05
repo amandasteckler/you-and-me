@@ -5,6 +5,7 @@ class BoardsController < ApplicationController
 
   def create
     board = Board.new(board_params)
+    # Board.create(board_params)     
     if board.save
     end
   end
@@ -16,8 +17,10 @@ class BoardsController < ApplicationController
     rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
     # [{Post}, {}, {}]
     order_posts = rawPosts.sort_by {|post| post.created_at}.reverse
-    orderedWithUser = order_posts.map {|post| {post: post, user: post.user_board.user}}
+    # JK: this sorting can be done on the AR level, which would make it more performant.
 
+    orderedWithUser = order_posts.map {|post| {post: post, user: post.user_board.user}}
+    # JK: Consider using the merge method in ruby.
     render json: {board: {board: board, users: users, user_boards: board.user_boards}, posts: orderedWithUser}
   end
 
@@ -36,6 +39,5 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:title)
-
   end
 end
