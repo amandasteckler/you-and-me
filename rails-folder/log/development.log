@@ -5677,3 +5677,41 @@ ArgumentError (Before process_action callback :authenticate_user has not been de
   
 app/controllers/users_controller.rb:2:in `<class:UsersController>'
 app/controllers/users_controller.rb:1:in `<top (required)>'
+Started POST "/users" for ::1 at 2016-12-05 14:08:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (33.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "a"], ["email", "a@a.com"], ["password_digest", "$2a$10$knY.1PTevswflaCK8Cbj.uSKFt4fTen39xWYotDDEsH/NobQ.IBNu"], ["created_at", 2016-12-05 19:08:24 UTC], ["updated_at", 2016-12-05 19:08:24 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 145ms (Views: 0.5ms | ActiveRecord: 41.8ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 14:08:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 13156ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 14:09:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 14:10:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 205644ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 14:13:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+Completed 200 OK in 166ms (Views: 0.3ms | ActiveRecord: 5.9ms)
+
+
