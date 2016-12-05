@@ -1,15 +1,21 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import {Link} from 'react-router'
 // import auth from '../../lib/auth'
 
 class Profile extends Component {
 
-  render(){
-    debugger;
+  handleOnClick(event) {
+    debugger
+    event.preventDefault();
+    this.props.boardRequest(1);
+  }
 
+  render(){
+    debugger
     let boards = this.props.profile.boards.map((board) => {
-      return <li>{board.title}</li>
+      return BOOGERS
     })
 
     return(
@@ -17,7 +23,10 @@ class Profile extends Component {
         <h1>Welcome, {this.props.profile.user_name}.</h1>
         <h2>Your Boards:</h2>
         <div>
-          <ul>{boards}</ul>
+          <ul>
+            {boards}
+            <li><Link to={url}>THIS IS A FUCKING LINK</Link></li>
+          </ul>
         </div>
       </div>
     )
