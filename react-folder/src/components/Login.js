@@ -10,21 +10,28 @@ class Login extends Component {
     this.state = {email: "", password: ""}
   }
 
-  handleSubmit(event, action){
-    debugger
+  handleEmailChange(event){
+    this.setState({email: event.target.value})
+  }
+
+  handlePasswordChange(event){
+    this.setState({password: event.target.value})
+  }
+
+  handleSubmit(event){
     event.preventDefault()
-    this.props.logUserIn(this.state, action.current_user.id) //this.props.user.id?
+    this.props.logUserIn(this.state) //this.props.user.id?
   }
 
   render() {
     return (
 
-      <form>
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <label>Email</label>
-        <input type="text" placeholder="enter email"/>
+        <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
 
         <label>Password</label>
-        <input type="password" placeholder="enter password"/>
+        <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
 
         <input type="submit" />
       </form>

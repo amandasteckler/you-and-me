@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 class Profile extends Component {
 
   render(){
+    
     return(
       <div>
         <h1>Welcome, {this.props.profile.user_name}.</h1>
@@ -21,7 +22,7 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  return {profile: state.current_user}
+  return {profile: state.profile.current_user}
 }
 
 export default connect(mapStateToProps)(Profile)

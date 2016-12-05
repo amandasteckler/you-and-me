@@ -5162,3 +5162,518 @@ Completed 200 OK in 80ms (Views: 0.3ms | ActiveRecord: 1.2ms)
 
 
 >>>>>>> amanda
+Started GET "/boards/1" for ::1 at 2016-12-05 10:16:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.7ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 150ms (Views: 13.2ms | ActiveRecord: 33.8ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-05 10:16:44 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 22ms (Views: 5.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-05 10:16:44 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"i kno rite?!", "user_board_id"=>3}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "i kno rite?!"], ["user_board_id", 3], ["created_at", 2016-12-05 15:16:44 UTC], ["updated_at", 2016-12-05 15:16:44 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 16ms (ActiveRecord: 7.8ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-05 10:16:50 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"why?", "user_board_id"=>3}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/boards/1" for ::1 at 2016-12-05 10:16:50 -0500
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "why?"], ["user_board_id", 3], ["created_at", 2016-12-05 15:16:50 UTC], ["updated_at", 2016-12-05 15:16:50 UTC]]
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 9ms (ActiveRecord: 2.5ms)
+
+
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-05 10:16:55 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"there we go", "user_board_id"=>3}}
+Started GET "/boards/1" for ::1 at 2016-12-05 10:16:55 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Load (2.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (2.3ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.5ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "there we go"], ["user_board_id", 3], ["created_at", 2016-12-05 15:16:55 UTC], ["updated_at", 2016-12-05 15:16:55 UTC]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 17ms (ActiveRecord: 7.9ms)
+
+
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 22ms (Views: 4.6ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-05 10:16:56 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"", "user_board_id"=>3}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", ""], ["user_board_id", 3], ["created_at", 2016-12-05 15:16:56 UTC], ["updated_at", 2016-12-05 15:16:56 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 8ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-05 10:16:56 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 26ms (Views: 7.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-05 10:18:23 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 76ms (Views: 30.2ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 10:36:43 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user has not been defined):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started POST "/users" for ::1 at 2016-12-05 10:36:46 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user has not been defined):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started POST "/users" for ::1 at 2016-12-05 10:36:48 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user has not been defined):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started POST "/users" for ::1 at 2016-12-05 10:38:21 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"drew", "email"=>"d@d.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "drew"], ["email", "d@d.com"], ["password_digest", "$2a$10$eUBqAED/mmc8kF/RPTl.DuMIM73UKTTINRP2IrmoCvl5WUBJ3NcCi"], ["created_at", 2016-12-05 15:38:21 UTC], ["updated_at", 2016-12-05 15:38:21 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 91ms (Views: 1.1ms | ActiveRecord: 12.1ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 10:40:24 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"d", "email"=>"d@d.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "d"], ["email", "d@d.com"], ["password_digest", "$2a$10$pPfRCB.tK52ulmbo6pIuhupaPZU3r.kLXVQVjlZZ.f51vJmiLJSvS"], ["created_at", 2016-12-05 15:40:24 UTC], ["updated_at", 2016-12-05 15:40:24 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 78ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 10:42:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"d", "email"=>"d", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "d"], ["email", "d"], ["password_digest", "$2a$10$OVdXGWARGSNhjWMiNba80.Z8s422vS10bEEIoHkn8ud/Qs2F58CaO"], ["created_at", 2016-12-05 15:42:28 UTC], ["updated_at", 2016-12-05 15:42:28 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 148ms (Views: 1.4ms | ActiveRecord: 14.7ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 10:44:02 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"d", "email"=>"d", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "d"], ["email", "d"], ["password_digest", "$2a$10$ShXUPIrMHvZYaChpsjZ2i.NF9U4s9wckUJpPa8/r8fioozII7QWzS"], ["created_at", 2016-12-05 15:44:02 UTC], ["updated_at", 2016-12-05 15:44:02 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 98ms (Views: 1.4ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/user/undefined" for ::1 at 2016-12-05 11:30:40 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/user/undefined"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2016-12-05 11:41:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"d", "email"=>"d@d.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "d"], ["email", "d@d.com"], ["password_digest", "$2a$10$9DvjHcg/pzaFz3yNn8YAh.TAOgyGJKtURIZH4UMbiz3ZMerwcLQbG"], ["created_at", 2016-12-05 16:41:58 UTC], ["updated_at", 2016-12-05 16:41:58 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 115ms (Views: 0.6ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:43:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 11:47:22 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"dd", "email"=>"dd@d.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "dd"], ["email", "dd@d.com"], ["password_digest", "$2a$10$fdkBnauLOgQyH3/F.87GA.iSmuRinS/pxV/S2uc87U2kinzwkjIuu"], ["created_at", 2016-12-05 16:47:22 UTC], ["updated_at", 2016-12-05 16:47:22 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 146ms (Views: 3.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:47:45 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:49:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:50:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:53:39 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:54:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"d", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"d", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:54:17 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"d@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"d@d.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-12-05 11:55:29 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"auth"=>{"name"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "a"], ["email", "a@a.com"], ["password_digest", "$2a$10$kC7aCXtkGCJkau1PGdKqFeQW3XKy6QzFaHoMXb/7rHUTsEAQtFuYe"], ["created_at", 2016-12-05 16:55:29 UTC], ["updated_at", 2016-12-05 16:55:29 UTC]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 121ms (Views: 2.7ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 11:56:05 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 12:02:18 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 12:03:45 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 12:04:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+Completed 200 OK in 128ms (Views: 0.4ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 12:06:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+Completed 200 OK in 84ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:14:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 0.5ms | ActiveRecord: 28.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:16:31 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.1ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 10]]
+Completed 200 OK in 45488ms (Views: 0.5ms | ActiveRecord: 26.2ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:17:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Started POST "/sessions" for ::1 at 2016-12-05 13:18:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.8ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mBoard Load (2.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 500 Internal Server Error in 983488ms (ActiveRecord: 9.0ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 1042581ms (ActiveRecord: 13.0ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:6:in `create'
+Started POST "/sessions" for ::1 at 2016-12-05 13:35:18 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:35:38 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:09 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:17 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:17 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:18 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:18 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:18 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:36:18 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:12: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:38:27 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:9: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:9: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:39:44 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:39:45 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:39:46 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:40:40 -0500
+  
+SyntaxError (/Users/flatironschool/code/group_projects/you-and-me/rails-folder/app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'):
+  
+app/controllers/sessions_controller.rb:11: syntax error, unexpected keyword_else, expecting '}'
+Started POST "/sessions" for ::1 at 2016-12-05 13:41:15 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 18.3ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/sessions" for ::1 at 2016-12-05 13:41:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 5.5ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/sessions" for ::1 at 2016-12-05 13:42:38 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.9ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/sessions" for ::1 at 2016-12-05 13:42:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.9ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/sessions" for ::1 at 2016-12-05 13:43:17 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:44:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:44:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 75895ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:46:00 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 6242ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-05 13:46:26 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 32.1ms)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/users" for ::1 at 2016-12-05 13:46:37 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user has not been defined):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<top (required)>'

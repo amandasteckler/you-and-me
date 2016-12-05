@@ -28,7 +28,7 @@ class Nav extends Component {
 
 
 function mapStateToProps(state) {
-  return {current_user: state.signup.current_user}
+  return {current_user: state.profile.current_user}
 }
 
 export default connect(mapStateToProps)(Nav)

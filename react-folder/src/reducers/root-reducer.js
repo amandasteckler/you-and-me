@@ -12,7 +12,7 @@ function reducer(state = {board: {board:{}, users:[], user_board: {}}, posts: []
   }
 }
 
-function signup(state = {creating_user: false, current_user: 1}, action){
+function profile(state = {creating_user: false, current_user: null}, action){
   //current_user HARDCODED TO BE 1 by Drew for board tests
   switch (action.type) {
     case 'CREATING_USER':
@@ -24,17 +24,17 @@ function signup(state = {creating_user: false, current_user: 1}, action){
   }
 }
 
-function login(state = {creating_user: false, current_user:null}, action) {
-  switch (action.type) {
-    case 'LOGIN_USER':
-      return {...state, creating_user: false, current_user: action.current_user}
-    default:
-      return state
-  }
-}
+// function login(state = {creating_user: false, current_user: null}, action) {
+//   switch (action.type) {
+//     case 'LOGIN_USER':
+//       return {...state, creating_user: false, current_user: action.current_user}
+//     default:
+//       return state
+//   }
+// }
 
 // const rootReducer = combineReducers({reducer, signup})
 
-export default combineReducers({reducer, signup, login})
+export default combineReducers({reducer, profile})
 
 // export default reducer
