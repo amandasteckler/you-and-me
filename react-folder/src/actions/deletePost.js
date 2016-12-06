@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { boardRequest } from '../actions'
+import { boardRequest } from '../actions.js'
 
 export default function deletePost(postId){
   return function (dispatch) {
@@ -9,6 +9,8 @@ export default function deletePost(postId){
      data: JSON.stringify({post_id: postId}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
+   }).done(function(response){
+     dispatch({type:"DELETE_POST", payload:response.deleted_post_id})
    })
   }
 }

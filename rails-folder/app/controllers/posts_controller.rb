@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     Post.delete(params[:id])
 
     if true
-      render json: {success: true}
+      render json: {success: true, deleted_post_id: params[:id] }
     else
       render json: {success: false}
     end
