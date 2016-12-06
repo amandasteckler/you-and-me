@@ -54,6 +54,10 @@ export function boardRequest(formValue) {
   }
 }
 
+export function saveImage() {
+
+}
+
 
 
 // export function fetchVideos(searchTerm){
