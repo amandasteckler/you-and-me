@@ -99,7 +99,7 @@ class PostForm extends Component {
 
 function mapStateToProps(state){
   // SELECTION WILL NEED TO CHANGE ONCE LOGIN IS COMPLETE!!!!!
-  return {current_user: state.signup.current_user, user_boards: state.reducer.board.user_boards}
+  return {current_user: state.profile.current_user, user_boards: state.reducer.current_board.user_boards}
 }
 
 function mapDispatchToProps(dispatch){
