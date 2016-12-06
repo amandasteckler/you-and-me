@@ -57,11 +57,14 @@ class PostForm extends Component {
   }
 
   handleOnSubmit(event){
+    //submit a Post request to RailsAPI
+      //RUBY::Post.new([:user_board_id], [:content])
     event.preventDefault();
-    let userBoardId = currentUserBoardId(this.props.user_boards, this.props.current_user)
-    let values = Object.assign({}, this.state, {user_board_id: userBoardId})
+      //currentUserBoardId(all_user_boards_for_this_board, current_user_id) => Returns:: user_board_id
+    let user_board = currentUserBoardId(this.props.user_boards, this.props.current_user.user_id)
+    let values = Object.assign({}, this.state, {user_board_id: user_board.id})
     this.props.postStatus(values)
-    this.props.boardRequest(this.props.user_boards[0].board_id)
+    this.props.boardRequest(user_board.board_id)
     this.setState({content: ""})
   }
 
@@ -98,8 +101,7 @@ class PostForm extends Component {
 }
 
 function mapStateToProps(state){
-  // SELECTION WILL NEED TO CHANGE ONCE LOGIN IS COMPLETE!!!!!
-  return {current_user: state.profile.current_user, user_boards: state.reducer.current_board.user_boards}
+  return {current_user: state.profile.current_user, user_boards: state.reducer.current_board.board.user_boards}
 }
 
 function mapDispatchToProps(dispatch){

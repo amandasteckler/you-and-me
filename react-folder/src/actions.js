@@ -57,13 +57,3 @@ export function boardRequest(formValue) {
 export function saveImage() {
 
 }
-
-
-
-// export function fetchVideos(searchTerm){
-//   const videos = axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&part=snippet&key=${API_KEY}`)
-//   return {
-//     type: "FETCH_VIDEOS",
-//     payload: videos
-//   }
-// }
