@@ -55,6 +55,10 @@ export function boardRequest(id) {
   // return {type:"FETCH_BOARD", payload: board}
 }
 
+export function saveImage() {
+
+}
+
 
 
 // export function fetchVideos(searchTerm){
