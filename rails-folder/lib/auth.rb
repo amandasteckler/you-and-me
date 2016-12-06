@@ -1,3 +1,5 @@
+require 'jwt'
+
 class Auth
  def self.issue(payload)
    JWT.encode(payload, Rails.application.secrets[:secret_key_base], 'HS256')
@@ -9,5 +11,7 @@ class Auth
 
  def self.auth_secret
    ENV["AUTH_SECRET"]
+   #see if this is actually calling the right thing
+   #Rails.application.secrets.secret_key_base
  end
 end
