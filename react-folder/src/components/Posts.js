@@ -8,6 +8,7 @@ class Posts extends Component {
   render() {
 
     let postList = this.props.posts.map((post)=> {
+      // post.post feels weird to me.  Perhaps the structure in your store can be refactored.
       return <p><em>{post.user.name}</em>: {post.post.content}</p>
     })
 
