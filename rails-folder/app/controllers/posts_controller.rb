@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user
+
   def new
     post = Post.new(post_params)
   end
@@ -7,6 +9,8 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
 
     if post.save
+    else
+      render json: {errors: "post not succesful"}
     end
   end
 
@@ -23,7 +27,15 @@ class PostsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    Post.delete(params[:id])
+
+    if true
+      render json: {success: true}
+    else
+      render json: {success: false}
+    end
+
   end
 
   private
