@@ -9,7 +9,7 @@ export default function deletePost(postId){
      data: JSON.stringify({post_id: postId}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
-   }).done(boardRequest(1))
+   })
   }
 }
 

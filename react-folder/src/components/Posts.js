@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 // import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import deletePost from '../actions/deletePost.js'
+import deletePost from '../actions/deletePost.js'
 import { boardRequest } from '../actions'
 import $ from 'jquery'
 import { done } from 'jquery'
@@ -11,8 +11,7 @@ import { done } from 'jquery'
 class Posts extends Component {
 
   handleDeleteClick(event){
-    // this.props.deletePost(event.target.value)
-    // .done(boardRequest(this.props.current_board_id))
+    this.props.deletePost(event.target.value)
   }
 
   render() {
@@ -35,7 +34,7 @@ class Posts extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  // return bindActionCreators({ deletePost }, dispatch)
+  return bindActionCreators({ deletePost }, dispatch)
 }
 
 function mapStateToProps(state) {

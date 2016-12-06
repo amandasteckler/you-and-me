@@ -11332,3 +11332,495 @@ Completed 204 No Content in 10ms (ActiveRecord: 4.2ms)
 Completed 200 OK in 18ms (Views: 4.8ms | ActiveRecord: 2.8ms)
 
 
+Started POST "/sessions" for ::1 at 2016-12-06 17:02:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 137ms (Views: 0.4ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:02:16 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 45ms (Views: 6.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:02:22 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.0ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 23ms (Views: 5.9ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-06 17:02:22 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"this works", "user_board_id"=>4}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (1.0ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "this works"], ["user_board_id", 4], ["created_at", 2016-12-06 22:02:22 UTC], ["updated_at", 2016-12-06 22:02:22 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 13ms (ActiveRecord: 4.6ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-06 17:02:23 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"d", "user_board_id"=>4}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/boards/1" for ::1 at 2016-12-06 17:02:23 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUserBoard Load (1.3ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "d"], ["user_board_id", 4], ["created_at", 2016-12-06 22:02:23 UTC], ["updated_at", 2016-12-06 22:02:23 UTC]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 11ms (ActiveRecord: 6.9ms)
+
+
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 24ms (Views: 6.0ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:19:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 153ms (Views: 0.4ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:19:39 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 43ms (Views: 6.0ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:21:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 70ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:21:22 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 22ms (Views: 6.3ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:22:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 71ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:22:53 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 22ms (Views: 7.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:22:57 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (1.6ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 31ms (Views: 4.9ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-06 17:22:57 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"hello", "user_board_id"=>4}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.5ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "hello"], ["user_board_id", 4], ["created_at", 2016-12-06 22:22:57 UTC], ["updated_at", 2016-12-06 22:22:57 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 11ms (ActiveRecord: 3.4ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-06 17:22:59 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"d", "user_board_id"=>4}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/boards/1" for ::1 at 2016-12-06 17:22:59 -0500
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "d"], ["user_board_id", 4], ["created_at", 2016-12-06 22:22:59 UTC], ["updated_at", 2016-12-06 22:22:59 UTC]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 8ms (ActiveRecord: 3.6ms)
+
+
+  [1m[36mUserBoard Load (0.6ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 23ms (Views: 6.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:24:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 68ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:24:57 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 19ms (Views: 6.3ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/posts/55" for ::1 at 2016-12-06 17:25:04 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"55", "id"=>"55", "post"=>{}}
+  [1m[35mSQL (2.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 55]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:25:04 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 19ms (Views: 6.0ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:27:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 68ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:27:04 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 18ms (Views: 6.1ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/posts/54" for ::1 at 2016-12-06 17:27:07 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"54", "id"=>"54", "post"=>{}}
+  [1m[35mSQL (2.0ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 54]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/posts/53" for ::1 at 2016-12-06 17:27:09 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"53", "id"=>"53", "post"=>{}}
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 53]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/posts/52" for ::1 at 2016-12-06 17:27:11 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"52", "id"=>"52", "post"=>{}}
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 52]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/posts/51" for ::1 at 2016-12-06 17:27:12 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"51", "id"=>"51", "post"=>{}}
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 51]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/posts/50" for ::1 at 2016-12-06 17:27:14 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"50", "id"=>"50", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 50]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/49" for ::1 at 2016-12-06 17:27:16 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"49", "id"=>"49", "post"=>{}}
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 49]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/posts/48" for ::1 at 2016-12-06 17:27:17 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"48", "id"=>"48", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 48]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/45" for ::1 at 2016-12-06 17:27:25 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"45", "id"=>"45", "post"=>{}}
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 45]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/44" for ::1 at 2016-12-06 17:27:26 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"44", "id"=>"44", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 44]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/43" for ::1 at 2016-12-06 17:27:27 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"43", "id"=>"43", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 43]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/42" for ::1 at 2016-12-06 17:27:29 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"42", "id"=>"42", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 42]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/41" for ::1 at 2016-12-06 17:27:30 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"41", "id"=>"41", "post"=>{}}
+  [1m[35mSQL (2.0ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 41]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/posts/40" for ::1 at 2016-12-06 17:27:32 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"40", "id"=>"40", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 40]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/39" for ::1 at 2016-12-06 17:27:33 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"39", "id"=>"39", "post"=>{}}
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 39]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/posts/38" for ::1 at 2016-12-06 17:27:35 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"38", "id"=>"38", "post"=>{}}
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 38]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/posts/37" for ::1 at 2016-12-06 17:27:38 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"37", "id"=>"37", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 37]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/36" for ::1 at 2016-12-06 17:27:39 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"36", "id"=>"36", "post"=>{}}
+  [1m[35mSQL (1.9ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 36]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/posts/35" for ::1 at 2016-12-06 17:27:41 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"35", "id"=>"35", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 35]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/34" for ::1 at 2016-12-06 17:27:42 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"34", "id"=>"34", "post"=>{}}
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 34]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/posts/33" for ::1 at 2016-12-06 17:27:44 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"33", "id"=>"33", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 33]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/32" for ::1 at 2016-12-06 17:27:46 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"32", "id"=>"32", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 32]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/31" for ::1 at 2016-12-06 17:27:48 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"31", "id"=>"31", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 31]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/30" for ::1 at 2016-12-06 17:27:50 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"30", "id"=>"30", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 30]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/29" for ::1 at 2016-12-06 17:27:51 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"29", "id"=>"29", "post"=>{}}
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 29]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/posts/12" for ::1 at 2016-12-06 17:27:53 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"12", "id"=>"12", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 12]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/11" for ::1 at 2016-12-06 17:27:55 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"11", "id"=>"11", "post"=>{}}
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 11]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/posts/10" for ::1 at 2016-12-06 17:27:56 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"10", "id"=>"10", "post"=>{}}
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/posts/9" for ::1 at 2016-12-06 17:27:58 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"9", "id"=>"9", "post"=>{}}
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 9]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/posts/8" for ::1 at 2016-12-06 17:27:59 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"8", "id"=>"8", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 8]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-06 17:28:18 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 74ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-06 17:28:19 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 12ms (Views: 1.4ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/posts/47" for ::1 at 2016-12-06 17:28:24 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"47", "id"=>"47", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 47]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/46" for ::1 at 2016-12-06 17:28:26 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post_id"=>"46", "id"=>"46", "post"=>{}}
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 46]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
