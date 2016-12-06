@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 
-function reducer(state = {board: {board:{}, users:[], user_board: {}}, posts: []}, action) {
+function reducer(state = {current_board: {board_title: '', board_user_1: '', board_user_2: '', posts: []}}, action) {
+
   switch (action.type) {
     case 'FETCH_BOARD':
-      let posts = action.payload.posts
-      return Object.assign({}, state, {board: action.payload.board, posts: posts})
-    case 'SUBMIT_POST':
-      return state
+      return {...state, current_board: action.current_board}
+    // case 'SUBMIT_POST':
+    //   return state
     default:
       return state
   }

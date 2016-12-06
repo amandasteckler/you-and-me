@@ -7,44 +7,21 @@ import PostForm from './PostForm'
 
 class Board extends Component {
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.boardRequest(1);
-  }
-
   render() {
 
-     let usersTitle =this.props.board.users.map((user) => {
-      return user.name
-    }).join(" & ")
-
-    usersTitle = "This board is between: " + usersTitle
-
-    return (<div>
-    <div>
-      <p>This button will be in the profile page linking to a specific board</p>
-      <form onSubmit={this.handleOnSubmit.bind(this)}>
-        <button >Board Request - Board 1</button>
-      </form>
-    </div>
-
-    <div>
-      <h1>{this.props.board.board.title}</h1>
-      <h2>{usersTitle}</h2>
-    </div>
-
-    <PostForm />
-    <Posts />
-  </div>)
+    return (
+      <div>
+        <h1>{this.props.board.board_title}</h1>
+        <h2>This board is between: {this.props.board.board_user_1} & {this.props.board.board_user_2}</h2>
+        <PostForm />
+        <Posts />
+      </div>
+    )
   }
-}
-
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({boardRequest: boardRequest}, dispatch)
 }
 
 function mapStateToProps(state) {
-  return {board: state.reducer.board}
+  return {board: state.reducer.current_board.board}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Board)
+export default connect(mapStateToProps)(Board)
