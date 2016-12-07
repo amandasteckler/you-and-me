@@ -1,13 +1,11 @@
 import React, {Component} from 'react'
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import postStatus from '../actions/postStatus'
-import currentUserBoardId from '../actions/currentUserBoardId'
-import { boardRequest } from '../actions'
-// import { ImageUpload } from './ImageUpload'
-// import MyDropZone from './MyDropZone'
-import Dropzone from 'react-dropzone';
-import request from 'superagent';
+import boardRequest from '../actions/boardRequest'
+
 
 const CLOUDINARY_UPLOAD_PRESET = 'zprfewb9';
 const CLOUDINARY_UPLOAD_URL = '	https://api.cloudinary.com/v1_1/dzs7addex/upload';
@@ -18,12 +16,7 @@ class PostForm extends Component {
     this.state = {
       content: "",
       uploadedFileCloudinaryUrl: ''
-  }
-    //is there where an instance of imageUpload needs to be added?
-    //should content be an array that we iterate and map over, so that content
-      //can hold both text the user posts and images the user uploads?
-      //if so, many of the places where content gets assigned should actually
-        //be pushing data.
+    }
   }
 
   onImageDrop(files) {
@@ -60,11 +53,9 @@ class PostForm extends Component {
     //submit a Post request to RailsAPI
       //RUBY::Post.new([:user_board_id], [:content])
     event.preventDefault();
-      //currentUserBoardId(all_user_boards_for_this_board, current_user_id) => Returns:: user_board_id
-    let user_board = currentUserBoardId(this.props.user_boards, this.props.current_user.user_id)
-    let values = Object.assign({}, this.state, {user_board_id: user_board.id})
+    let values = Object.assign({}, this.state, {userBoardID: this.props.userBoardID})
     this.props.postStatus(values)
-    this.props.boardRequest(user_board.board_id)
+    // this.props.boardRequest(this.props.currentBoardID)
     this.setState({content: ""})
   }
 
@@ -82,7 +73,6 @@ class PostForm extends Component {
         </Dropzone>
         <div>
         <div className="FileUpload">
-          ...
         </div>
 
         <div>
@@ -101,7 +91,7 @@ class PostForm extends Component {
 }
 
 function mapStateToProps(state){
-  return {current_user: state.profile.current_user, user_boards: state.reducer.currentBoard.board.user_boards}
+  return {currentUser: state.currentUser, userBoardID: state.currentUser.userBoardID, currentBoardID: state.currentBoard.id}
 }
 
 function mapDispatchToProps(dispatch){

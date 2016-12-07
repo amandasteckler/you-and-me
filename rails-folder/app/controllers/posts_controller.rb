@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-
     if post.save
     else
       render json: {errors: "post not succesful"}

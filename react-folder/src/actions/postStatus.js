@@ -7,7 +7,7 @@ export default function postStatus(formValues){
     $.ajax({
      url: 'http://localhost:3000/posts',
      type: 'POST',
-     data: JSON.stringify({post: {content: formValues.content, user_board_id: formValues.user_board_id}}),
+     data: JSON.stringify({post: {content: formValues.content, user_board_id: formValues.userBoardID}}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
    })
