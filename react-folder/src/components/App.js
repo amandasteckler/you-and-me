@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
-import '../App.css';
-import Board from './Board.js'
 import Nav from './Nav'
+import '../App.css';
 
 class App extends Component {
   render() {

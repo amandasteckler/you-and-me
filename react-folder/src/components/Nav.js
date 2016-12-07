@@ -6,8 +6,8 @@ import { Link } from 'react-router'
 class Nav extends Component {
 
   navList(){
-    if (!!this.props.current_user) {
-      return [{name: "Home", URI:"/"}, {name: "My Boards", URI: "/"}, {name: "Log Out", URI: "/"}]
+    if (!!this.props.currentUser) {
+      return [{name: "Home", URI:"/"}, {name: "My Boards", URI: "/profile"}, {name: "Log Out", URI: "/"}]
     } else {
       return [{name: "Home", URI: "/"}, {name: "Login", URI: "login"}, {name:"Signup", URI:"signup"}]
     }
@@ -15,12 +15,16 @@ class Nav extends Component {
 
   render(){
     let formattedLinks = this.navList().map((item)=>{
-      return <Link className="nav" to={item.URI}>{item.name}</Link>
+      return <li><Link to={item.URI}>{item.name}</Link></li>
     })
     return(
       <div>
-        <div className="youandme">✏️ You and Me ✏️</div>
-        <div className="navbar">{formattedLinks}</div>
+        <nav>
+          <ul>
+            <li><Link to="/">You and Me</Link></li>
+            {formattedLinks}
+          </ul>
+        </nav>
       </div>
     )
   }
@@ -28,7 +32,7 @@ class Nav extends Component {
 
 
 function mapStateToProps(state) {
-  return {current_user: state.profile.current_user}
+  return {current_user: state.currentUser}
 }
 
 export default connect(mapStateToProps)(Nav)

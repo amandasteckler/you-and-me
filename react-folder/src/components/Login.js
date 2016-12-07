@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { logUserIn } from '../actions'
+import logUserIn from '../actions/logUserIn'
 
 class Login extends Component {
 
@@ -20,12 +20,11 @@ class Login extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.logUserIn(this.state) //this.props.user.id?
+    this.props.logUserIn(this.state)
   }
 
   render() {
     return (
-
       <form onSubmit={this.handleSubmit.bind(this)}>
         <label>Email</label>
         <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
