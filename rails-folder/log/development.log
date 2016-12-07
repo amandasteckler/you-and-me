@@ -13017,3 +13017,174 @@ Processing by SessionsController#create as HTML
 Completed 200 OK in 134ms (Views: 0.3ms | ActiveRecord: 12.2ms)
 
 
+Started POST "/sessions" for ::1 at 2016-12-07 13:20:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (1.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 139ms (Views: 0.4ms | ActiveRecord: 13.8ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:24:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 103ms (Views: 0.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:25:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 78ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:29:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 78ms (Views: 0.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:29:31 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:43:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 118ms (Views: 0.4ms | ActiveRecord: 11.7ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:44:23 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 69ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:45:20 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:7:in `create'
+Started POST "/sessions" for ::1 at 2016-12-07 13:45:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:46:34 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 66ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:48:27 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 71ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:49:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 69ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:52:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 71ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:52:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:53:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:54:21 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 68ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:56:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (1.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 69ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-07 13:56:59 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 68ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-07 13:57:56 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 64ms (Views: 2.4ms | ActiveRecord: 13.5ms)
+
+

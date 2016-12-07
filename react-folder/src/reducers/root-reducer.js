@@ -5,4 +5,4 @@ import boards from './boardsReducer'
 import posts from './postsReducer'
 import images from './imagesReducer'
 
-export default combineReducers({currentUser, boards, currentBoard, posts, images})
+export default combineReducers({boards, currentUser, currentBoard, posts, images})

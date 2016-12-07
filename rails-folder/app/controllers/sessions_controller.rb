@@ -7,7 +7,7 @@ skip_before_action :authenticate_user, only: [:create]
     if user.authenticate(auth_params[:password])
       jwt = Auth.issue({user: user.id})
       boards = user.boards.map do |board|
-        {title: board.title, board_id: board.id, board_user_1: board.users[0].name, board_user_2: board.users[1].name}
+        {title: board.title, id: board.id}
       end
 
       if user.name == user.name.capitalize

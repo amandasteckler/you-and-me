@@ -18,13 +18,14 @@ class Profile extends Component {
   }
 
   render(){
-    let boards = this.props.profile.boards.map((board) => {
-      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.board_id}>{board.title}</Link></li>
+    let boards = this.props.boards.map((board) => {
+      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link></li>
     })
+
 
     return(
       <div>
-        <h1>Welcome, {this.props.profile.user_name}.</h1>
+        <h1>Welcome, {this.props.currentUser.name}.</h1>
         <h2>Your Boards:</h2>
         <div>
           <ul>
@@ -42,7 +43,7 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-  return {profile: state.profile.current_user}
+  return {currentUser: state.currentUser, boards: state.boards}
 }
 
 function mapDispatchToProps(dispatch) {
