@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {Link} from 'react-router'
-import { boardRequest } from '../actions'
+import boardRequest from '../actions/boardRequest'
 // import auth from '../../lib/auth'
 
 class Profile extends Component {

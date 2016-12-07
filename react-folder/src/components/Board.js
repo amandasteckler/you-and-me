@@ -11,17 +11,18 @@ class Board extends Component {
 
     return (
       <div>
-        <h1>{this.props.board.board_title}</h1>
-        <h2>This board is between: {this.props.board.board_user_1} & {this.props.board.board_user_2}</h2>
-        <PostForm />
-        <Posts />
+        <h1>{this.props.board.title}</h1>
+        <h2>This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
+        {/* <PostForm />
+        <Posts /> */}
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return {board: state.reducer.current_board.board}
+  debugger
+  return {board: state.currentBoard}
 }
 
 export default connect(mapStateToProps)(Board)

@@ -1,18 +1,18 @@
-export default function currentBoard(state = {id: null, title: null, users: [], userBoardID: null}, action) {
+export default function currentBoard(state = {id: null, title: null, users: []}, action) {
 
   switch (action.type) {
     case 'FETCH_BOARD':
-      return {...state, current_board: action.current_board}
+      return Object.assign({}, state, {id: action.currentBoard.id, title: action.currentBoard.title, users: action.currentBoard.users})
     // case 'SUBMIT_POST':
     //   return state
-    case 'DELETE_POST':
-      let newPosts = state.current_board.board.posts.filter((post)=>{
-        if (post.post.id !== action.payload) {
-          return post
-        }
-      })
-      return Object.assign({}, state)
-      //THIS IS WHERE YOU WERE LAST DREW -- trying to get it to return a state without the last post
+    // case 'DELETE_POST':
+    //   let newPosts = state.current_board.board.posts.filter((post)=>{
+    //     if (post.post.id !== action.payload) {
+    //       return post
+    //     }
+    //   })
+    //   return Object.assign({}, state)
+    //   //THIS IS WHERE YOU WERE LAST DREW -- trying to get it to return a state without the last post
     default:
       return state
   }

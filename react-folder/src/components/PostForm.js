@@ -101,7 +101,7 @@ class PostForm extends Component {
 }
 
 function mapStateToProps(state){
-  return {current_user: state.profile.current_user, user_boards: state.reducer.current_board.board.user_boards}
+  return {current_user: state.profile.current_user, user_boards: state.reducer.currentBoard.board.user_boards}
 }
 
 function mapDispatchToProps(dispatch){
