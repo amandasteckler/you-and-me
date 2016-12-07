@@ -18,8 +18,8 @@ class Posts extends Component {
     let postList = this.props.posts.map((post)=> {
       return (
       <div>
-        <p><em>{post.user_name}</em>: {post.post.content}</p>
-        <button value ={post.post.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button>
+        <p><em>{post.userName}</em>: {post.content}</p>
+        <button value ={post.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button>
       </div>
       )
     })
@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-  return {posts: state.reducer.current_board.board.posts, current_board_id: state.reducer.current_board.board.user_boards[0].board_id}
+  return {posts: state.posts, currentBoardID: state.currentBoard.id}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts)

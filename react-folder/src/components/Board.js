@@ -13,8 +13,8 @@ class Board extends Component {
       <div>
         <h1>{this.props.board.title}</h1>
         <h2>This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
-        {/* <PostForm />
-        <Posts /> */}
+        {/* <PostForm /> */}
+        <Posts />
       </div>
     )
   }
