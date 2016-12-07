@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:show]
+  skip_before_action :authenticate_user, only: [:show, :destroy]
 
   def new
     board = Board.new(board_params)
@@ -31,7 +31,14 @@ class BoardsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @user = User.find(params[:user_id])
+    @board = Board.find(params[:id])
+    @board.destroy
+    new_boards = @user.boards.map do |board|
+      {title: board.title, id: board.id}
+    end
+    render json: { boards: new_boards }
   end
 
   private
