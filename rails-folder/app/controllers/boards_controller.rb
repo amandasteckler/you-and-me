@@ -1,14 +1,23 @@
 class BoardsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:show, :destroy]
+  skip_before_action :authenticate_user, only: [:create, :show, :destroy]
 
   def new
     board = Board.new(board_params)
   end
 
   def create
-    board = Board.new(board_params)
+    board = Board.new(title: params[:title])
+    user = User.find(params[:user_id])
+
     if board.save
+      user_board = UserBoard.create(user_id: user.id, board_id: board.id)
     end
+
+    new_user_boards = user.boards.map do |board|
+      {title: board.title, id: board.id}
+    end
+
+    render json: { boards: new_user_boards }
   end
 
   def show

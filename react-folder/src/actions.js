@@ -16,7 +16,7 @@ export function createUser(formValues) {
      contentType: 'application/json; charset=utf-8'
    }).done(function(response){
      localStorage.setItem('jwt', response.jwt)
-     dispatch({type: 'LOGIN_USER', current_user: response.current_user})
+     dispatch({type: 'LOGIN_USER', currentUser: response.current_user})
      browserHistory.push('/profile')
    })
   }

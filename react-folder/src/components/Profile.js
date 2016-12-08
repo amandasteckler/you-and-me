@@ -4,18 +4,32 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router'
 import boardRequest from '../actions/boardRequest'
 import boardDelete from '../actions/boardDelete'
+import createBoard from '../actions/createBoard'
 // import auth from '../../lib/auth'
 
 class Profile extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {}
-  // }
+  constructor(props){
+    super(props);
+    this.state = {
+      title: "",
+    }
+  }
 
   handleOnClick(event) {
     event.preventDefault();
     this.props.boardRequest(event.target.attributes.value.value);
+  }
+
+  handleTitleChange(event) {
+    this.setState({title: event.target.value})
+  }
+
+  handleCreate(event) {
+    event.preventDefault();
+    // passing in state, which is just title, as well as current user id
+    this.props.createBoard(this.state.title, event.target.attributes.value.value)
+    this.setState({title: ''})
   }
 
   handleDelete(event) {
@@ -30,17 +44,17 @@ class Profile extends Component {
       return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link> <button onClick={this.handleDelete.bind(this)} value={board.id} className={this.props.currentUser.id}>Delete Board</button></li>
     })
 
-
-    // let boardsAndUsers = boards.map((board) => {
-    //   return <p>{board} <button onClick={this.handleDelete.bind(this)} value={board.id}>Delete Board</button></p>
-    // })
-
-
     return(
       <div>
         <h1>Welcome, {this.props.currentUser.name}.</h1>
         <h2>Your Boards:</h2>
         <div>
+          <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
+            <label>Create New Board: </label>
+            <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
+            <input type="submit" value="Create!" />
+          </form>
+
           <ul>
             {boards}
           </ul>
@@ -60,7 +74,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ boardRequest, boardDelete }, dispatch)
+  return bindActionCreators({ boardRequest, boardDelete, createBoard }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)
