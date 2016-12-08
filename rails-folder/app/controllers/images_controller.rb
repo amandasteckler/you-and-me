@@ -17,8 +17,13 @@ class ImagesController < ApplicationController
 
     if image.save
       board = Board.find(image.user_board.board.id)
-      ordered_posts = OrderedPosts.new.sort_with_user(board)
-      render json:
+
+      rawImages = board.user_boards.map {|user_board| user_board.images}.flatten
+          # [{Post}, {}, {}]
+          order_images = rawImages.sort_by {|image| image.created_at}.reverse
+          ordered_with_user = order_images.map {|image| {id: image.id, url: image.url, userID: image.user_board.user.id, userName: image.user_board.user.name}}
+
+      render json: {images: ordered_with_user}
     else
       render json: {error: "You failed"}
     end

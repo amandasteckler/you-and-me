@@ -25,11 +25,33 @@ class Posts extends Component {
     return list
   }
 
+  imageList(images, currentUserID){
+    let list = images.map((image)=>{
+        if (image.userID === currentUserID) {
+          return (
+            <div>
+              <p><em>{image.userName}</em>:</p>
+              <img src={image.url}/>
+              {/* <button value ={image.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button> */}
+            </div>)
+        } else {
+          return (
+            <div>
+              <p><em>{image.userName}</em>:</p>
+              <img src={image.url}/>
+            </div>)
+        }
+    })
+    return list
+  }
+
   render() {
     let posts = this.postList(this.props.posts, this.props.currentUserID)
+    let images = this.imageList(this.props.images, this.props.currentUserID)
     return (
       <div>
         {posts}
+        {images}
       </div>
     )
   }
@@ -40,7 +62,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-  return {posts: state.posts, currentBoardID: state.currentBoard.id, currentUserID: state.currentUser.id}
+  return {posts: state.posts, images: state.images, currentBoardID: state.currentBoard.id, currentUserID: state.currentUser.id}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts)
