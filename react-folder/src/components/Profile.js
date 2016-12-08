@@ -55,7 +55,7 @@ class Profile extends Component {
         <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
           <label>Create New Board: </label>
           <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
-          <input type="text" placeholder="Other User's Email" onChange={this.handleOtherUserChange.bind(this)} />
+          <input type="text" placeholder="Other User's Email" onChange={this.handleOtherUserChange.bind(this)} value={this.state.otherUserEmail} />
           <input type="submit" value="Create!" />
         </form>
         <h2>Your Boards:</h2>

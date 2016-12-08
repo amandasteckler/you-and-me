@@ -9,7 +9,7 @@ class Nav extends Component {
     if (!!this.props.currentUser) {
       return [{name: "Home", URI:"/"}, {name: "My Boards", URI: "/profile"}, {name: "Log Out", URI: "/"}]
     } else {
-      return [{name: "Home", URI: "/"}, {name: "Login", URI: "login"}, {name:"Signup", URI:"signup"}]
+      return [{name: "Home", URI: "/"}, {name: "My Boards", URI: "/profile"}, {name: "Login", URI: "login"}, {name:"Signup", URI:"signup"}]
     }
   }
 

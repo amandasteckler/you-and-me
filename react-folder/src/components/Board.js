@@ -7,11 +7,23 @@ import PostForm from './PostForm'
 
 class Board extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      title: ""
+    }
+  }
+
+  handleEditTitle(event) {
+    event.preventDefault();
+    debugger;
+  }
+
   render() {
 
     return (
       <div>
-        <h1>{this.props.board.title}</h1>
+        <form onSubmit={this.handleEditTitle.bind(this)}><h1>{this.props.board.title} <input type="text" placeholder="Edit Title" /><input type='submit' value="Edit!" /></h1></form>
         <h2>This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
         <PostForm />
         <Posts />
@@ -23,5 +35,6 @@ class Board extends Component {
 function mapStateToProps(state) {
   return {board: state.currentBoard}
 }
+
 
 export default connect(mapStateToProps)(Board)
