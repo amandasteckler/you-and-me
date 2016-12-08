@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import deletePost from '../actions/deletePost.js'
-import $ from 'jquery'
-import { done } from 'jquery'
 
 
 class Posts extends Component {
@@ -12,21 +10,27 @@ class Posts extends Component {
     this.props.deletePost(event.target.value, this.props.currentBoardID)
   }
 
-  render() {
-    let postList = this.props.posts.map((post)=> {
-      return (
-      <div>
-        <p><em>{post.userName}</em>: {post.content}</p>
-        <button value ={post.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button>
-      </div>
-      )
+  postList(posts, currentUserID){
+    let list = posts.map((post)=>{
+        if (post.userID === currentUserID) {
+          return (
+            <div>
+              <p><em>{post.userName}</em>: {post.content}</p>
+              <button value ={post.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button>
+            </div>)
+        } else {
+          return (<div><p><em>{post.userName}</em>: {post.content}</p></div>)
+        }
     })
+    return list
+  }
 
+  render() {
+    let posts = this.postList(this.props.posts, this.props.currentUserID)
     return (
-
-    <div>
-      {postList}
-    </div>
+      <div>
+        {posts}
+      </div>
     )
   }
 }
@@ -36,7 +40,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state) {
-  return {posts: state.posts, currentBoardID: state.currentBoard.id}
+  return {posts: state.posts, currentBoardID: state.currentBoard.id, currentUserID: state.currentUser.id}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts)
