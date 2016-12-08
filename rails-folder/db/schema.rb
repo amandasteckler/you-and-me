@@ -22,10 +22,7 @@ ActiveRecord::Schema.define(version: 5) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "name"
-    t.string   "previewUrl"
-    t.string   "type"
-    t.string   "comment"
+    t.string   "url"
     t.integer  "user_board_id"
     t.datetime "created_at"
     t.datetime "updated_at"

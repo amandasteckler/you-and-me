@@ -1,11 +1,7 @@
 class ImagesController < ApplicationController
   skip_before_action :authenticate_user
+
   def new
-    image = Image.new(image_params)
-  end
-
-  def create
-
     auth = {
       cloud_name: "dzs7addex",
       api_key:    "881868338744319",
@@ -14,6 +10,19 @@ class ImagesController < ApplicationController
 
     myFile = Cloudinary::Uploader.upload(params["file"].tempfile.path, auth)
     render json: {imageUrl: myFile["url"]}
+  end
+
+  def create
+    image = Image.new(image_params)
+
+    if image.save
+      board = Board.find(image.user_board.board.id)
+      ordered_posts = OrderedPosts.new.sort_with_user(board)
+      render json:
+    else
+      render json: {error: "You failed"}
+    end
+
   end
 
   def show
@@ -31,7 +40,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    # params.require(:image).permit()
+    params.require(:image).permit(:url, :user_board_id)
   end
 
 end

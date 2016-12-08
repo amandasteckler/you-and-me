@@ -6,9 +6,7 @@ import { connect } from 'react-redux'
 import $ from 'jquery'
 import postStatus from '../actions/postStatus'
 import boardRequest from '../actions/boardRequest'
-import previewImage from '../actions/previewImage'
-
-
+import submitImage from '../actions/submitImage'
 
 const CLOUDINARY_UPLOAD_PRESET = 'zprfewb9';
 const CLOUDINARY_UPLOAD_URL = '	https://api.cloudinary.com/v1_1/dzs7addex/upload';
@@ -18,7 +16,8 @@ class PostForm extends Component {
     super(props);
     this.state = {
       content: "",
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
+      imageUrl: ""
     }
   }
 
@@ -26,32 +25,29 @@ class PostForm extends Component {
     this.setState({
       uploadedFile: files[0]
     });
-    let upload = request.post(`http://localhost:3000/images/`)
-                        // .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                        .field('file', files[0]);
-
-    // this.props.fetchImage(file)
-
-     upload.end((err, response) => {
-      if (err) {
-        console.error(err);
-      }
-      if (response.body.secure_url !== '') {
-        this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
-        });
-      }
-      // this.setState({previewURL: JSON.parse(response.text).imageUrl})
-
-      this.setState(JSON.parse(response.text).imageUrl)
-      // this.previewImage(JSON.parse(response.text).imageUrl)
-      debugger
-    })
-    debugger
+    this.handleImageUpload(files[0]);
   }
 
   handleImageUpload(file) {
+  let upload = request.post(`http://localhost:3000/images/new`)
+                      // .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                      .field('file', file);
 
+  // this.props.fetchImage(file)
+
+  return upload.end((err, response) => {
+    if (err) {
+      console.error(err);
+    }
+    if (response.body.secure_url !== '') {
+      this.setState({
+        uploadedFileCloudinaryUrl: response.body.secure_url
+      });
+    }
+    // this.setState({previewURL: JSON.parse(response.text).imageUrl})
+
+    this.setState({imageUrl: JSON.parse(response.text).imageUrl})
+  })
 }
 
 
@@ -69,6 +65,11 @@ class PostForm extends Component {
     this.setState({content: ""})
   }
 
+  handleSubmitImage(event) {
+    event.preventDefault()
+    this.props.submitImage(event.target.attributes.value.value, this.props.userBoardID)
+  }
+
   render() {
     // this.previewImage(this.state.previewURL)
     return (
@@ -78,7 +79,6 @@ class PostForm extends Component {
           <input type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
           <input type="submit" value="Post" />
         </form>
-
         {/* <MyDropZone /> */}
         <Dropzone multiple={false} accept="image/*" onDrop={this.onImageDrop.bind(this)}>
           <p>Drop an image or click to select a file to upload.</p>
@@ -91,7 +91,8 @@ class PostForm extends Component {
           {this.state.uploadedFileCloudinaryUrl === '' ? null :
           <div>
             <p>{this.state.uploadedFile.name}</p>
-            <img src={this.state.uploadedFileCloudinaryUrl} />
+            <img src={this.state.imageUrl} />
+            <button value={this.state.imageUrl} onClick={this.handleSubmitImage.bind(this)}>Post</button>
           </div>}
         </div>
       </div>
@@ -107,7 +108,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ postStatus, boardRequest, previewImage }, dispatch)
+  return bindActionCreators({ postStatus, boardRequest, submitImage }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
