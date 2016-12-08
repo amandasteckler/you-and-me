@@ -1,16 +1,16 @@
 import $ from 'jquery'
 import { boardRequest } from '../actions.js'
 
-export default function deletePost(postId){
+export default function deletePost(postID, boardID){
   return function (dispatch) {
     $.ajax({
-     url: `http://localhost:3000/posts/${postId}`,
+     url: `http://localhost:3000/posts/${postID}`,
      type: 'DELETE',
-     data: JSON.stringify({post_id: postId}),
+     data: JSON.stringify({post: {id: postID, board_id: boardID}}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
    }).done(function(response){
-     dispatch({type:"DELETE_POST", payload:response.deleted_post_id})
+     dispatch({type:"UPDATE_TIMELINE", posts:response.posts})
    })
   }
 }

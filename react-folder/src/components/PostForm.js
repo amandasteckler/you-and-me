@@ -67,6 +67,7 @@ class PostForm extends Component {
           <input type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
           <input type="submit" value="Post" />
         </form>
+        
         {/* <MyDropZone /> */}
         <Dropzone multiple={false} accept="image/*" onDrop={this.onImageDrop.bind(this)}>
           <p>Drop an image or click to select a file to upload.</p>

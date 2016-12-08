@@ -10,6 +10,10 @@ export default function postStatus(formValues){
      data: JSON.stringify({post: {content: formValues.content, user_board_id: formValues.userBoardID}}),
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
-   })
+   }).done(
+     (response) => {
+       dispatch({type:"UPDATE_TIMELINE", posts: response.posts});
+     }
+   )
   }
 }

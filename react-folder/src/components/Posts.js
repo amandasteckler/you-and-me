@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-// import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import deletePost from '../actions/deletePost.js'
-import { boardRequest } from '../actions'
 import $ from 'jquery'
 import { done } from 'jquery'
 
@@ -11,7 +9,7 @@ import { done } from 'jquery'
 class Posts extends Component {
 
   handleDeleteClick(event){
-    this.props.deletePost(event.target.value)
+    this.props.deletePost(event.target.value, this.props.currentBoardID)
   }
 
   render() {
