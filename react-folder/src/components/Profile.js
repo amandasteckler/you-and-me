@@ -13,6 +13,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       title: "",
+      otherUserEmail: ""
     }
   }
 
@@ -25,11 +26,15 @@ class Profile extends Component {
     this.setState({title: event.target.value})
   }
 
+  handleOtherUserChange(event) {
+    this.setState({otherUserEmail: event.target.value})
+  }
+
   handleCreate(event) {
     event.preventDefault();
     // passing in state, which is just title, as well as current user id
-    this.props.createBoard(this.state.title, event.target.attributes.value.value)
-    this.setState({title: ''})
+    this.props.createBoard(this.state.title, this.state.otherUserEmail, event.target.attributes.value.value)
+    this.setState({title: '', otherUserEmail: ''})
   }
 
   handleDelete(event) {
@@ -47,13 +52,14 @@ class Profile extends Component {
     return(
       <div>
         <h1>Welcome, {this.props.currentUser.name}.</h1>
+        <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
+          <label>Create New Board: </label>
+          <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
+          <input type="text" placeholder="Other User's Email" onChange={this.handleOtherUserChange.bind(this)} />
+          <input type="submit" value="Create!" />
+        </form>
         <h2>Your Boards:</h2>
         <div>
-          <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
-            <label>Create New Board: </label>
-            <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
-            <input type="submit" value="Create!" />
-          </form>
 
           <ul>
             {boards}

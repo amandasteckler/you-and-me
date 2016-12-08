@@ -8,9 +8,12 @@ class BoardsController < ApplicationController
   def create
     board = Board.new(title: params[:title])
     user = User.find(params[:user_id])
+    other_user_email = params[:other_user_email]
+    other_user = User.find_by(email: other_user_email)
 
     if board.save
-      user_board = UserBoard.create(user_id: user.id, board_id: board.id)
+      user_board_one = UserBoard.create(user_id: user.id, board_id: board.id)
+      user_board_two = UserBoard.create(user_id: other_user.id, board_id: board.id)
     end
 
     new_user_boards = user.boards.map do |board|
