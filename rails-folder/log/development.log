@@ -18129,3 +18129,1062 @@ Completed 200 OK in 77ms (Views: 0.5ms | ActiveRecord: 0.6ms)
 >>>>>>> c0342ffd444f49dd98c094521b1015aa3b6b4cc5
 
 
+Started POST "/sessions" for ::1 at 2016-12-08 09:28:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 138ms (Views: 0.3ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 09:28:07 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 33ms (Views: 0.9ms | ActiveRecord: 7.5ms)
+
+
+Started DELETE "/posts/7" for ::1 at 2016-12-08 09:28:09 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"post"=>{"id"=>"7", "board_id"=>1}, "id"=>"7"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 7]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 09:47:14 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 77ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 09:47:16 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 10:01:36 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 112ms (Views: 0.3ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 10:01:38 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 30ms (Views: 0.9ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/posts" for ::1 at 2016-12-08 10:01:39 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"post"=>{"content"=>"", "user_board_id"=>4}}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", ""], ["user_board_id", 4], ["created_at", 2016-12-08 15:01:39 UTC], ["updated_at", 2016-12-08 15:01:39 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 10:01:43 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007ffbaa6a7888 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-26798-1cmjtm3.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 10:03:03 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 104ms (Views: 0.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 10:03:05 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 29ms (Views: 1.0ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 10:03:10 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007ffbabd01de0 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-26798-js1q1n.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 400 Bad Request in 539349ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 10:16:44 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 135ms (Views: 0.3ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 10:16:48 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 34ms (Views: 1.0ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 10:16:52 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007ffc944e9a88 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27046-8wivp.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant ImagesController::Cloudinary):
+  
+app/controllers/images_controller.rb:14:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 10:18:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 128ms (Views: 0.3ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 10:18:51 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 34ms (Views: 1.2ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 10:18:56 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fb32e8dc500 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27076-1nv3xab.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 400 Bad Request in 132919ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: image):
+  
+app/controllers/images_controller.rb:36:in `image_params'
+app/controllers/images_controller.rb:16:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 13:23:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 146ms (Views: 0.3ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:23:22 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 34ms (Views: 0.9ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:23:26 -0500
+  
+SyntaxError (/Users/scottlindquist/Desktop/Immersive/projects/you-and-me/rails-folder/app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/sessions" for ::1 at 2016-12-08 13:25:26 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:25:28 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:25:32 -0500
+  
+SyntaxError (/Users/scottlindquist/Desktop/Immersive/projects/you-and-me/rails-folder/app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/sessions" for ::1 at 2016-12-08 13:28:16 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 75ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:28:18 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 16ms (Views: 5.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:30:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:30:07 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:32:30 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 72ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:32:33 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:32:38 -0500
+  
+SyntaxError (/Users/scottlindquist/Desktop/Immersive/projects/you-and-me/rails-folder/app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/images_controller.rb:38: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/sessions" for ::1 at 2016-12-08 13:39:18 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 105ms (Views: 0.3ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:39:20 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 30ms (Views: 0.9ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:39:25 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a44adc50 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-d21p9b.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1774ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:40:31 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 75ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:40:33 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:40:48 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a9092f30 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-bssp2o.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1069ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:41:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 75ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:41:47 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:41:51 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a8359878 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1b3qx7v.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 976ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:44:32 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 105ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:44:36 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 28ms (Views: 1.1ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:44:40 -0500
+  
+SyntaxError (/Users/scottlindquist/Desktop/Immersive/projects/you-and-me/rails-folder/app/controllers/images_controller.rb:16: syntax error, unexpected '}', expecting =>
+/Users/scottlindquist/Desktop/Immersive/projects/you-and-me/rails-folder/app/controllers/images_controller.rb:37: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/images_controller.rb:16: syntax error, unexpected '}', expecting =>
+app/controllers/images_controller.rb:37: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/sessions" for ::1 at 2016-12-08 13:45:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 108ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:45:57 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 33ms (Views: 0.9ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:46:01 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4602d08 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-i4bii2.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 994ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 13:47:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 105ms (Views: 0.3ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 13:47:14 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 35ms (Views: 0.8ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 13:47:18 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a9058e98 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-15aqtsz.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1157ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:00:41 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 104ms (Views: 0.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:00:45 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 35ms (Views: 0.9ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:01:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 72ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:02:01 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:03:56 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 71ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:03:58 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:04:02 -0500
+Processing by ImagesController#create as */*
+Completed 500 Internal Server Error in 80207ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for nil:NilClass):
+  
+app/controllers/images_controller.rb:15:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 14:05:22 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 80ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:05:22 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (1.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 83ms (Views: 0.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:05:25 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:05:29 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"object Object"=>nil}
+Completed 500 Internal Server Error in 131749ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for nil:NilClass):
+  
+app/controllers/images_controller.rb:15:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 14:09:23 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 105ms (Views: 0.2ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:09:27 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 43ms (Views: 0.9ms | ActiveRecord: 12.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:14:48 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"object Object"=>nil}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for nil:NilClass):
+  
+app/controllers/images_controller.rb:15:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 14:14:58 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 111ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:15:00 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 44ms (Views: 0.9ms | ActiveRecord: 12.8ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:15:12 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"object Object"=>nil}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for nil:NilClass):
+  
+app/controllers/images_controller.rb:15:in `create'
+Started POST "/sessions" for ::1 at 2016-12-08 14:20:59 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 14:21:06 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (4.0ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:22:40 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"object Object"=>nil}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `tempfile' for nil:NilClass):
+  
+app/controllers/images_controller.rb:15:in `create'
+Started POST "/images/" for ::1 at 2016-12-08 14:22:40 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a8051ef0 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-mhsr79.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 88066ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:24:08 -0500
+Processing by SessionsController#create as HTML
+Started POST "/sessions" for ::1 at 2016-12-08 14:24:08 -0500
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (73.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (72.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 149ms (Views: 0.2ms | ActiveRecord: 72.8ms)
+
+
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 150ms (Views: 0.4ms | ActiveRecord: 74.2ms)
+
+
+Started DELETE "/boards/1" for ::1 at 2016-12-08 14:24:28 -0500
+Processing by BoardsController#destroy as */*
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "boards" WHERE "boards"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:24:31 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:24:38 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4683c50 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1ygqq2w.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 7602ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:27:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:27:45 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:27:53 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4761488 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-v8doc0.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 5850ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:40:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:41:00 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:41:04 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4bcbd20 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1jnw1zb.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 7159ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:48:13 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 110ms (Views: 0.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:48:15 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.4ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 35ms (Views: 0.7ms | ActiveRecord: 8.4ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:48:19 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a61e8130 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1xswy3l.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 951ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:51:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:51:53 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:51:57 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a8629620 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-14nq4dc.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 973ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:54:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:54:55 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:55:00 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a835a430 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1y65mfr.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 866ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:58:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:58:11 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 14:58:16 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a467b0a0 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-yqj9h2.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 519ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 14:59:55 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 78ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 14:59:57 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:00:01 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4639e20 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-505gp4.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 779ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 15:02:31 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 15:02:36 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:02:40 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a801ae78 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1ixljk1.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1313ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 15:05:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 15:05:59 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:06:04 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4dc18a0 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-at2l34.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1654ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 15:07:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 73ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 15:07:27 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:07:31 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a4b58bb8 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1xhwabx.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1054ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 15:07:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 71ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 15:07:55 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:07:59 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a903a268 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-zelk2g.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1115ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2016-12-08 15:09:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 70ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/2" for ::1 at 2016-12-08 15:09:47 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 2]]
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/images/" for ::1 at 2016-12-08 15:09:51 -0500
+Processing by ImagesController#create as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fd2a47bd328 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-27324-1tgg1h5.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 987ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+

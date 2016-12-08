@@ -3,8 +3,11 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import $ from 'jquery'
 import postStatus from '../actions/postStatus'
 import boardRequest from '../actions/boardRequest'
+import previewImage from '../actions/previewImage'
+
 
 
 const CLOUDINARY_UPLOAD_PRESET = 'zprfewb9';
@@ -23,27 +26,34 @@ class PostForm extends Component {
     this.setState({
       uploadedFile: files[0]
     });
+    let upload = request.post(`http://localhost:3000/images/`)
+                        // .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', files[0]);
 
-    this.handleImageUpload(files[0]);
+    // this.props.fetchImage(file)
+
+     upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
+      // this.setState({previewURL: JSON.parse(response.text).imageUrl})
+
+      this.setState(JSON.parse(response.text).imageUrl)
+      // this.previewImage(JSON.parse(response.text).imageUrl)
+      debugger
+    })
+    debugger
   }
 
   handleImageUpload(file) {
-  let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                      .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                      .field('file', file);
 
-  upload.end((err, response) => {
-    if (err) {
-      console.error(err);
-    }
-
-    if (response.body.secure_url !== '') {
-      this.setState({
-        uploadedFileCloudinaryUrl: response.body.secure_url
-      });
-    }
-  });
 }
+
 
   handleStatusChange(event){
     this.setState({content: event.target.value})
@@ -60,6 +70,7 @@ class PostForm extends Component {
   }
 
   render() {
+    // this.previewImage(this.state.previewURL)
     return (
       <div>
         <form onSubmit={this.handleOnSubmit.bind(this)}>
@@ -67,7 +78,7 @@ class PostForm extends Component {
           <input type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
           <input type="submit" value="Post" />
         </form>
-        
+
         {/* <MyDropZone /> */}
         <Dropzone multiple={false} accept="image/*" onDrop={this.onImageDrop.bind(this)}>
           <p>Drop an image or click to select a file to upload.</p>
@@ -96,7 +107,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ postStatus, boardRequest }, dispatch)
+  return bindActionCreators({ postStatus, boardRequest, previewImage }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

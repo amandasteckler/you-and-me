@@ -1,14 +1,19 @@
 class ImagesController < ApplicationController
+  skip_before_action :authenticate_user
   def new
     image = Image.new(image_params)
   end
 
   def create
-    image = Image.new(image_params)
 
-    if image.save
-    end
-    #byebug
+    auth = {
+      cloud_name: "dzs7addex",
+      api_key:    "881868338744319",
+      api_secret: "pR-k06zrut5LasFM8_pnaTkf6HQ"
+    }
+
+    myFile = Cloudinary::Uploader.upload(params["file"].tempfile.path, auth)
+    render json: {imageUrl: myFile["url"]}
   end
 
   def show
@@ -26,7 +31,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit()
-    #what goes here?
+    # params.require(:image).permit()
   end
+
 end
