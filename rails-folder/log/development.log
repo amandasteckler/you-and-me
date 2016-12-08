@@ -20005,3 +20005,47 @@ Processing by ImagesController#create as HTML
 Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 2.6ms)
 
 
+Started POST "/sessions" for ::1 at 2016-12-08 17:10:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}, "session"=>{"auth"=>{"email"=>"drew@d.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "drew@d.com"], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" INNER JOIN "user_boards" ON "boards"."id" = "user_boards"."board_id" WHERE "user_boards"."user_id" = $1[0m  [["user_id", 2]]
+Completed 200 OK in 136ms (Views: 0.3ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/boards/1" for ::1 at 2016-12-08 17:11:04 -0500
+Processing by BoardsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.2ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_boards" ON "users"."id" = "user_boards"."user_id" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+Completed 200 OK in 37ms (Views: 1.4ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/images/new" for ::1 at 2016-12-08 17:11:09 -0500
+Processing by ImagesController#new as */*
+  Parameters: {"file"=>#<ActionDispatch::Http::UploadedFile:0x007fa98ddf1f68 @tempfile=#<Tempfile:/var/folders/zr/gs6j7j4d7w1_8jf0vl6_n0pm0000gn/T/RackMultipart20161208-28812-1jrwj3i.jpg>, @original_filename="01-cat-wants-to-tell-you-laptop.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"01-cat-wants-to-tell-you-laptop.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 200 OK in 1226ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/images" for ::1 at 2016-12-08 17:11:14 -0500
+Processing by ImagesController#create as HTML
+  Parameters: {"image"=>{"url"=>"http://res.cloudinary.com/dzs7addex/image/upload/v1481235070/xeeux7jzmrhne3xy0yi9.jpg", "user_board_id"=>4}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT  "user_boards".* FROM "user_boards" WHERE "user_boards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "images" ("url", "user_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "http://res.cloudinary.com/dzs7addex/image/upload/v1481235070/xeeux7jzmrhne3xy0yi9.jpg"], ["user_board_id", 4], ["created_at", 2016-12-08 22:11:14 UTC], ["updated_at", 2016-12-08 22:11:14 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserBoard Load (0.3ms)[0m  [1m[34mSELECT "user_boards".* FROM "user_boards" WHERE "user_boards"."board_id" = $1[0m  [["board_id", 1]]
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_board_id" = $1[0m  [["user_board_id", 3]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."user_board_id" = $1[0m  [["user_board_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 8.9ms)
+
+

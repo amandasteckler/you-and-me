@@ -68,6 +68,7 @@ class PostForm extends Component {
   handleSubmitImage(event) {
     event.preventDefault()
     this.props.submitImage(event.target.attributes.value.value, this.props.userBoardID)
+    this.setState({imageUrl: ""})
   }
 
   render() {
