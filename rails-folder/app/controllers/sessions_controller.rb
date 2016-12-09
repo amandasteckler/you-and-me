@@ -22,6 +22,9 @@ skip_before_action :authenticate_user, only: [:create]
     end
   end
 
+  def destroy
+  end
+
   private
     def auth_params
       params.require(:auth).permit(:email, :password)
