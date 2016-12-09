@@ -12,7 +12,7 @@ export default function postStatus(formValues){
      contentType: 'application/json; charset=utf-8'
    }).done(
      (response) => {
-       dispatch({type:"UPDATE_TIMELINE", posts: response.posts});
+       dispatch({type:"UPDATE_POSTS", posts: response.posts});
      }
    )
   }
