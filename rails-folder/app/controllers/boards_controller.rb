@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create, :show, :destroy]
+  skip_before_action :authenticate_user, only: [:create, :show, :destroy, :update]
 
   def new
     board = Board.new(board_params)
@@ -27,11 +27,16 @@ class BoardsController < ApplicationController
     # tried ordering when pulling from DB, difficult because selection will be two arrays from users
     board = Board.find(params[:id])
     users = board.users
+
     rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
+
     # [{Post}, {}, {}]
     order_posts = rawPosts.sort_by {|post| post.created_at}.reverse
+
     orderedWithUser = order_posts.map {|post| {id: post.id, content: post.content, userID: post.user_board.user.id, userName: post.user_board.user.name}}
+
     users = board.users.map {|user| {id: user.id, name: user.name}}
+
     render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: orderedWithUser}}
   end
 
@@ -41,6 +46,26 @@ class BoardsController < ApplicationController
   end
 
   def update
+    board = Board.find(params[:board_id])
+    board.update(title: params[:title])
+    current_user = User.find(params[:current_user_id])
+
+    users = board.users
+    rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
+
+    # [{Post}, {}, {}]
+    order_posts = rawPosts.sort_by {|post| post.created_at}.reverse
+    orderedWithUser = order_posts.map {|post| {id: post.id, content: post.content, userID: post.user_board.user.id, userName: post.user_board.user.name}}
+    users = board.users.map {|user| {id: user.id, name: user.name}}
+
+    sorted_boards = current_user.boards.sort_by &:created_at
+    
+    user_boards = sorted_boards.map do |board|
+      {title: board.title, id: board.id}
+    end
+
+
+    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: orderedWithUser}, boards: user_boards}
   end
 
   def destroy

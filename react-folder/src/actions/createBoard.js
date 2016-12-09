@@ -9,7 +9,6 @@ export default function createBoard(boardTitle, otherUserEmail, userID) {
      data: { title: boardTitle, other_user_email: otherUserEmail, user_id: userID }
   }).done(function(response){
     dispatch({type:"UPDATE_USER_BOARDS", boards: response.boards })
-    browserHistory.push('/profile')
   })
   }
 }
