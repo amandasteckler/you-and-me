@@ -2,12 +2,17 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import deletePost from '../actions/deletePost.js'
+import deleteImage from '../actions/deleteImage'
 
 
 class Posts extends Component {
 
-  handleDeleteClick(event){
+  handleDeletePost(event){
     this.props.deletePost(event.target.value, this.props.currentBoardID)
+  }
+
+  handleDeleteImage(event){
+    this.props.deleteImage(event.target.value, this.props.currentBoardID)
   }
 
   postList(posts, currentUserID){
@@ -16,7 +21,7 @@ class Posts extends Component {
           return (
             <div>
               <p><em>{post.userName}</em>: {post.content}</p>
-              <button value ={post.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button>
+              <button value ={post.id} onClick={this.handleDeletePost.bind(this)}>Delete this post</button>
             </div>)
         } else {
           return (<div><p><em>{post.userName}</em>: {post.content}</p></div>)
@@ -32,7 +37,7 @@ class Posts extends Component {
             <div>
               <p><em>{image.userName}</em>:</p>
               <img src={image.url}/>
-              {/* <button value ={image.id} onClick={this.handleDeleteClick.bind(this)}>Delete this post</button> */}
+              <button value ={image.id} onClick={this.handleDeleteImage.bind(this)}>Delete this image</button>
             </div>)
         } else {
           return (
@@ -58,7 +63,7 @@ class Posts extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({ deletePost }, dispatch)
+  return bindActionCreators({ deletePost, deleteImage }, dispatch)
 }
 
 function mapStateToProps(state) {

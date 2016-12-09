@@ -39,13 +39,20 @@ class ImagesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    board = Board.find(image_params[:board_id])
+    Image.delete(params[:id])
+    rawImages = board.user_boards.map {|user_board| user_board.images}.flatten
+    order_images = rawImages.sort_by {|image| image.created_at}.reverse
+    ordered_with_user = order_images.map {|image| {id: image.id, url: image.url, userID: image.user_board.user.id, userName: image.user_board.user.name}}
+
+    render json: {images: ordered_with_user}
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:url, :user_board_id)
+    params.require(:image).permit(:url, :user_board_id, :board_id)
   end
 
 end

@@ -4,7 +4,9 @@ import App from './components/App';
 import Signup from './components/Signup'
 import Profile from './components/Profile'
 import Login from './components/Login'
+import Logout from './components/Logout'
 import Board from './components/Board'
+
 
 export default (
  <Route path="/" component={App} >
@@ -12,5 +14,6 @@ export default (
    <Route path="profile" component={Profile} />
    <Route path="login" component={Login}/>
    <Route path="board" component={Board} />
+   <Route path="logout" component={Logout} />
  </ Route>
 );
