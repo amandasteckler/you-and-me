@@ -61,7 +61,7 @@ class BoardsController < ApplicationController
     end
 
 
-    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: orderedWithUser}, boards: user_boards}
+    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: posts}, boards: user_boards}
   end
 
   def destroy
