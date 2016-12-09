@@ -6,7 +6,8 @@ skip_before_action :authenticate_user, only: [:create]
     user = User.find_by(email: auth_params[:email])
     if user.authenticate(auth_params[:password])
       jwt = Auth.issue({user: user.id})
-      boards = user.boards.map do |board|
+      sorted_boards = user.boards.sort_by &:created_at
+      boards = sorted_boards.map do |board|
         {title: board.title, id: board.id}
       end
 
@@ -15,7 +16,7 @@ skip_before_action :authenticate_user, only: [:create]
       else
         username = user.name.capitalize
       end
-
+      
       render json: {jwt: jwt, current_user: {user_id: user.id, user_name: username, boards: boards}}
     else
       render json: {jwt: "User Not Found"}
