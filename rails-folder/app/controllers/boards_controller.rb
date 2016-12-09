@@ -27,12 +27,13 @@ class BoardsController < ApplicationController
     # tried ordering when pulling from DB, difficult because selection will be two arrays from users
     board = Board.find(params[:id])
     users = board.users
-    rawPosts = board.user_boards.map {|user_board| user_board.posts}.flatten
-    # [{Post}, {}, {}]
-    order_posts = rawPosts.sort_by {|post| post.created_at}.reverse
-    orderedWithUser = order_posts.map {|post| {id: post.id, content: post.content, userID: post.user_board.user.id, userName: post.user_board.user.name}}
-    users = board.users.map {|user| {id: user.id, name: user.name}}
-    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: orderedWithUser}}
+    posts = OrderedPosts.new.sort_with_user(board)
+
+    rawImages = board.user_boards.map {|user_board| user_board.images}.flatten
+    order_images = rawImages.sort_by {|image| image.created_at}.reverse
+    imgs_ordered_with_user = order_images.map {|image| {id: image.id, url: image.url, userID: image.user_board.user.id, userName: image.user_board.user.name}}
+
+    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: posts, images: imgs_ordered_with_user}}
   end
 
   def index

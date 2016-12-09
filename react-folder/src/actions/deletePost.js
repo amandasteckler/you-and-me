@@ -10,7 +10,7 @@ export default function deletePost(postID, boardID){
      dataType: 'json',
      contentType: 'application/json; charset=utf-8'
    }).done(function(response){
-     dispatch({type:"UPDATE_TIMELINE", posts:response.posts})
+     dispatch({type:"UPDATE_IMAGES", images:response.images})
    })
   }
 }

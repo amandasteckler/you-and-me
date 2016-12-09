@@ -89,9 +89,8 @@ class PostForm extends Component {
         </div>
 
         <div>
-          {this.state.uploadedFileCloudinaryUrl === '' ? null :
+          {this.state.imageUrl === '' ? null :
           <div>
-            <p>{this.state.uploadedFile.name}</p>
             <img src={this.state.imageUrl} />
             <button value={this.state.imageUrl} onClick={this.handleSubmitImage.bind(this)}>Post</button>
           </div>}
