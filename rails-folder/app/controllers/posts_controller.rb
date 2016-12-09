@@ -9,8 +9,8 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     if post.save
       board = Board.find(UserBoard.find(post_params[:user_board_id]).board.id)
-      orderedWithUser = OrderedPosts.new.sort_with_user(board)
-      render json: {posts: orderedWithUser}
+      posts = OrderedPosts.new.sort_with_user(board)
+      render json: {posts: posts}
     else
       render json: {errors: "post not succesful"}
     end

@@ -46,7 +46,6 @@ class Profile extends Component {
   }
 
   handleDeleteAccount(event) {
-    debugger
     event.preventDefault();
     this.props.deleteUserAccount(event.target.attributes.value.value)
 
@@ -54,7 +53,7 @@ class Profile extends Component {
 
   render(){
     let boards = this.props.boards.map((board) => {
-      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link> <button onClick={this.handleDelete.bind(this)} value={board.id} className={this.props.currentUser.id}>Delete Board</button></li>
+      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link> <button onClick={this.handleDelete.bind(this)} value={board.id} className={this.props.currentUser.id} className="btn btn-danger">Delete Board</button></li>
     })
 
     return(

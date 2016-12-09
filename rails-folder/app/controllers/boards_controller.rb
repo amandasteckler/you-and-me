@@ -24,17 +24,14 @@ class BoardsController < ApplicationController
   end
 
   def show
-    # tried ordering when pulling from DB, difficult because selection will be two arrays from users
     board = Board.find(params[:id])
     users = board.users
 
     posts = OrderedPosts.new.sort_with_user(board)
+    images = OrderedImages.new.sort_with_user(board)
 
-    rawImages = board.user_boards.map {|user_board| user_board.images}.flatten
-    order_images = rawImages.sort_by {|image| image.created_at}.reverse
-    imgs_ordered_with_user = order_images.map {|image| {id: image.id, url: image.url, userID: image.user_board.user.id, userName: image.user_board.user.name}}
 
-    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: posts, images: imgs_ordered_with_user}}
+    render json: {board: {id: board.id, title: board.title, user_boards: board.user_boards, users: users, posts: posts, images: images}}
 
   end
 

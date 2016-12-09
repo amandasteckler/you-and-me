@@ -5,6 +5,7 @@ import deletePost from '../actions/deletePost.js'
 import deleteImage from '../actions/deleteImage'
 
 
+
 class Posts extends Component {
 
   handleDeletePost(event){
@@ -15,48 +16,58 @@ class Posts extends Component {
     this.props.deleteImage(event.target.value, this.props.currentBoardID)
   }
 
-  postList(posts, currentUserID){
-    let list = posts.map((post)=>{
-        if (post.userID === currentUserID) {
-          return (
-            <div>
-              <p><em>{post.userName}</em>: {post.content}</p>
-              <button value ={post.id} onClick={this.handleDeletePost.bind(this)}>Delete this post</button>
-            </div>)
-        } else {
-          return (<div><p><em>{post.userName}</em>: {post.content}</p></div>)
-        }
-    })
-    return list
+  allMediaOrdered(posts, images){
+    let flattened = posts.concat(images);
+    flattened.sort((a, b)=>{
+      a = new Date(a.createAt)
+      b = new Date(b.createAt)
+      return a>b ? -1 : a<b ? 1 : 0;
+    });
+    return flattened
   }
 
-  imageList(images, currentUserID){
-    let list = images.map((image)=>{
-        if (image.userID === currentUserID) {
+  formatTimeline(timeline, currentUserID){
+    let list = timeline.map((status) =>{
+      switch (status.type) {
+        case "text":
+        if (status.userID === currentUserID) {
           return (
             <div>
-              <p><em>{image.userName}</em>:</p>
-              <img src={image.url}/>
-              <button value ={image.id} onClick={this.handleDeleteImage.bind(this)}>Delete this image</button>
+              <p><em>{status.userName}</em>: {status.content}</p>
+              <button value ={status.id} onClick={this.handleDeletePost.bind(this)}>Delete this post</button>
+            </div>)
+        } else {
+          return (<div><p><em>{status.userName}</em>: {status.content}</p></div>)
+        }
+        case "image":
+        if (status.userID === currentUserID) {
+          return (
+            <div>
+              <p><em>{status.userName}</em>:</p>
+              <img src={status.url}/>
+              <button value ={status.id} onClick={this.handleDeleteImage.bind(this)}>Delete this image</button>
             </div>)
         } else {
           return (
             <div>
-              <p><em>{image.userName}</em>:</p>
-              <img src={image.url}/>
+              <p><em>{status.userName}</em>:</p>
+              <img src={status.url}/>
             </div>)
         }
-    })
+        default:
+          return <div>Unable to render status</div>
+
+      }
+    }, this)
     return list
   }
 
   render() {
-    let posts = this.postList(this.props.posts, this.props.currentUserID)
-    let images = this.imageList(this.props.images, this.props.currentUserID)
+    let timeline = this.allMediaOrdered(this.props.posts, this.props.images)
+    let timelineFormatted = this.formatTimeline(timeline, this.props.currentUserID)
     return (
       <div>
-        {posts}
-        {images}
+        {timelineFormatted}
       </div>
     )
   }
