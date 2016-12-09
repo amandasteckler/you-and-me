@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 import boardRequest from '../actions/boardRequest'
 import boardDelete from '../actions/boardDelete'
 import createBoard from '../actions/createBoard'
+import deleteUserAccount from '../actions/deleteUserAccount'
 // import auth from '../../lib/auth'
 
 class Profile extends Component {
@@ -44,6 +45,13 @@ class Profile extends Component {
     this.props.boardDelete(event.target.attributes.value.value, event.target.attributes.class.value);
   }
 
+  handleDeleteAccount(event) {
+    debugger
+    event.preventDefault();
+    this.props.deleteUserAccount(event.target.attributes.value.value)
+
+  }
+
   render(){
     let boards = this.props.boards.map((board) => {
       return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link> <button onClick={this.handleDelete.bind(this)} value={board.id} className={this.props.currentUser.id}>Delete Board</button></li>
@@ -52,6 +60,7 @@ class Profile extends Component {
     return(
       <div>
         <h1>Welcome, {this.props.currentUser.name}.</h1>
+
         <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
           <label>Create New Board: </label>
           <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
@@ -65,6 +74,8 @@ class Profile extends Component {
             {boards}
           </ul>
         </div>
+        <p>Delete your Account</p>
+          <button onClick={this.handleDeleteAccount.bind(this)} value={this.props.currentUser.id}>Delete</button>
       </div>
     )
   }
@@ -80,7 +91,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ boardRequest, boardDelete, createBoard }, dispatch)
+  return bindActionCreators({ boardRequest, boardDelete, createBoard, deleteUserAccount }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

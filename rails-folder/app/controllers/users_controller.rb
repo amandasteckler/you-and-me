@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create]
+  skip_before_action :authenticate_user, only: [:create, :destroy]
 
   def new
     user = User.new(user_params)
   end
 
   def create
-    byebug
     user = User.new(user_params)
 
     if user.save
@@ -32,9 +31,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    user = User.find(params[:id])
+    user.update(name: params[:name], email: params[:email], password: params[:password])
   end
 
-  def delete
+  def destroy
+    user = User.find(params[:user_id])
+    user.destroy
   end
 
   private
