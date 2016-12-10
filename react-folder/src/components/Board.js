@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 // import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap'
 import Posts from './Posts'
 import PostForm from './PostForm'
 import updateBoard from '../actions/updateBoard'
@@ -25,15 +26,33 @@ class Board extends Component {
   }
 
   render() {
+    // <Row>
+    //   <form onSubmit={this.handleEditTitle.bind(this)}>
+    //
+    //     <input type="text" placeholder="Edit Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
+    //     <input type='submit' value="Edit!" />
+    //   </form>
 
+    //   <Posts />
+    // </Row>
 
     return (
-      <div>
-        <form onSubmit={this.handleEditTitle.bind(this)}><h1>{this.props.board.title} <input type="text" placeholder="Edit Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} /><input type='submit' value="Edit!" /></h1></form>
-        <h2>This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
-        <PostForm />
-        <Posts />
-      </div>
+    <div>
+      <Row>
+        <Col lg={12} md={12} sm={12} xs={12}>
+          <h1>{this.props.board.title}</h1>
+          <h2>This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
+        </Col>
+      </Row>
+
+      <PostForm />
+      
+      <Row>
+        <Col>
+
+        </Col>
+      </Row>
+    </div>
     )
   }
 }
