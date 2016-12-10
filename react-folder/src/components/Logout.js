@@ -29,8 +29,8 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({ logUserOut }, dispatch)
 }
 
-function mapStateToProps(state){
-  return {currentUserID: state.currentUser.id}
-}
+// function mapStateToProps(state){
+//   return {currentUserID: state.currentUser.id}
+// }
 
 export default connect(null, mapDispatchToProps)(Logout)

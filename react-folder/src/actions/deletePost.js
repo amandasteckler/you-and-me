@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { boardRequest } from '../actions.js'
+// import { boardRequest } from '../actions.js'
 
 export default function deletePost(postID, boardID){
   return function (dispatch) {

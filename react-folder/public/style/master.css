@@ -1,0 +1,31 @@
+body {
+  /*background-image: url("../media/welcome-3.jpg");*/
+  background: url("../media/welcome-3.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*background-repeat: no-repeat;
+  /*padding-bottom: 6em;*/
+}
+
+.headline {
+  padding-top:.83em;
+  padding-bottom:.83em;
+}
+
+.lightBox {
+  background-color: rgba(149, 172, 178, 0.67);
+}
+
+.spaceBottomXL {
+  padding-bottom: 6em;
+}
+
+.spaceBottomM {
+  padding-bottom: 2em;
+}
+
+.spaceTopM {
+  padding-top: 2em;
+}

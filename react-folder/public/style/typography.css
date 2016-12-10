@@ -1,0 +1,17 @@
+/*font-family: 'Josefin Slab', serif;
+font-family: 'Arvo', serif;
+font-family: 'Poppins', sans-serif;*/
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-family:'Josefin Slab', serif;
+  font-size: 8em;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: 'Arvo', serif
+}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { boardRequest } from '../actions'
+// import { boardRequest } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Posts from './Posts'

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap'
 import logUserIn from '../actions/logUserIn'
 
 class Login extends Component {
@@ -25,15 +26,30 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <label>Email</label>
-        <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+    <Row>
+      <Col lg={3} md={3} sm={3}>
+        <h4>Log In</h4>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <FormGroup>
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              type="text"
+              placeholder="enter email"
+              onChange={this.handleEmailChange.bind(this)}/>
+            <HelpBlock>Ex: you@uandme.com</HelpBlock>
+          </FormGroup>
+          <FormGroup>
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+            type="password"
+            placeholder="enter password"
+            onChange={this.handlePasswordChange.bind(this)}/>
+          </FormGroup>
 
-        <label>Password</label>
-        <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
-
-        <input type="submit" />
+          <Button type="submit">Login</Button>
       </form>
+      </Col>
+    </Row>
     )
   }
 }

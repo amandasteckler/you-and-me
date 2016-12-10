@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import boardRequest from '../actions'
+// import boardRequest from '../actions'
 
 export default function postStatus(formValues){
   //formValues = {content: "hello world", user_board_id: 1}

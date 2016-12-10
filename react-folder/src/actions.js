@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router'
 import $ from 'jquery'
 
-const ROOT_URL = 'http://localhost:3000/boards/1'
+// const ROOT_URL = 'http://localhost:3000/boards/1'
 
 
 export function createUser(formValues) {

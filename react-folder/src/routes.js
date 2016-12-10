@@ -6,10 +6,12 @@ import Profile from './components/Profile'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Board from './components/Board'
+import Welcome from './components/Welcome'
 
 
 export default (
  <Route path="/" component={App} >
+    <Route path="welcome" component={Welcome} />
    <Route path="signup" component={Signup} />
    <Route path="profile" component={Profile} />
    <Route path="login" component={Login}/>

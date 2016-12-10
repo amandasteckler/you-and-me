@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap'
 import { createUser } from '../actions'
 
 class Signup extends Component {
@@ -30,20 +31,29 @@ class Signup extends Component {
   render(){
 
     return(
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>Name</label>
-          <input type="text" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
+      <Row>
+        <Col lg={3} md={3} sm={3}>
+          <h4>Sign Up</h4>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <FormGroup>
+              <ControlLabel>Name</ControlLabel>
+              <FormControl type="text" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
+            </FormGroup>
 
-          <label>Email</label>
-          <input type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+            <FormGroup>
+              <ControlLabel>Email</ControlLabel>
+              <FormControl type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
+            </FormGroup>
 
-          <label>Password</label>
-          <input type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+            <FormGroup>
+              <ControlLabel>Password</ControlLabel>
+              <FormControl type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
+            </FormGroup>
 
-          <input type="submit" />
-        </form>
-      </div>
+            <Button type="submit">Signup</Button>
+          </form>
+        </Col>
+      </Row>
     )
   }
 }

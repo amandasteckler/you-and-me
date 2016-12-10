@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 import $ from 'jquery'
 
 export default function updateBoard(title, boardID, currentUserID) {
