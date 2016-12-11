@@ -26,6 +26,7 @@ class Board extends Component {
   }
 
   render() {
+    // TK:: FOR EDIT TITLE
     // <Row>
     //   <form onSubmit={this.handleEditTitle.bind(this)}>
     //
@@ -33,7 +34,7 @@ class Board extends Component {
     //     <input type='submit' value="Edit!" />
     //   </form>
 
-    //   <Posts />
+
     // </Row>
 
     return (
@@ -46,11 +47,9 @@ class Board extends Component {
       </Row>
 
       <PostForm />
-      
-      <Row>
-        <Col>
 
-        </Col>
+      <Row>
+        <Posts />
       </Row>
     </div>
     )

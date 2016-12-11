@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import deletePost from '../actions/deletePost.js'
 import deleteImage from '../actions/deleteImage'
+import { Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap'
 
 
 
@@ -27,32 +28,47 @@ class Posts extends Component {
   }
 
   formatTimeline(timeline, currentUserID){
+    let nameSpace = "lg={11} md={11} sm={11} xs={11}"
+    let buttonSpace = "lg={1} md={1} sm={1} xs={1}"
+    function nameTagline(status){
+      return (<Col nameSpace>
+        <h5><span className="glyphicon glyphicon-user" aria-hidden="true"></span>{status.userName}</h5>
+
+        <p className="postContent"> {status.content}</p></Col>)
+    }
     let list = timeline.map((status) =>{
       switch (status.type) {
         case "text":
         if (status.userID === currentUserID) {
           return (
             <div>
-              <p><em>{status.userName}</em>: {status.content}</p>
-              <button value ={status.id} onClick={this.handleDeletePost.bind(this)}>Delete this post</button>
-            </div>)
+            <Col nameSpace>
+              <h5><span className="glyphicon glyphicon-user" aria-hidden="true"></span>{status.userName}</h5>
+              <Button value={status.id} onClick={this.handleDeletePost.bind(this)}><span className="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span></Button>
+              <p className="postContent" >{status.content}</p>
+            </Col>
+            </div>
+            )
         } else {
-          return (<div><p><em>{status.userName}</em>: {status.content}</p></div>)
+          return (nameTagline(status))
         }
         case "image":
         if (status.userID === currentUserID) {
-          return (
-            <div>
-              <p><em>{status.userName}</em>:</p>
-              <img src={status.url}/>
+          return (<div>
+            <Col buttonSpace>
+              <h5><span className="glyphicon glyphicon-user" aria-hidden="true"></span>{status.userName}</h5>
+              <img className="img img-responsive" src={status.url}/>
+            </Col>
+            <Col buttonSpace>
               <button value ={status.id} onClick={this.handleDeleteImage.bind(this)}>Delete this image</button>
-            </div>)
+            </Col>
+          </div>)
         } else {
           return (
-            <div>
-              <p><em>{status.userName}</em>:</p>
-              <img src={status.url}/>
-            </div>)
+            <Col buttonSpace>
+              <h5><span className="glyphicon glyphicon-user" aria-hidden="true"></span>{status.userName}</h5>
+              <img className="img img-responsive" src={status.url}/>
+            </Col>)
         }
         default:
           return <div>Unable to render status</div>
@@ -66,9 +82,9 @@ class Posts extends Component {
     let timeline = this.allMediaOrdered(this.props.posts, this.props.images)
     let timelineFormatted = this.formatTimeline(timeline, this.props.currentUserID)
     return (
-      <div>
+      <Col lg={10} md={10} sm={10} xs={10} className="lightBox">
         {timelineFormatted}
-      </div>
+      </Col>
     )
   }
 }

@@ -15,3 +15,11 @@ h1 {
 h3 {
   font-family: 'Arvo', serif
 }
+
+h5 {
+  font-size: 1.3em;
+}
+
+.postContent {
+  font-size: 2em;
+}

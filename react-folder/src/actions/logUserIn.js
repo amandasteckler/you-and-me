@@ -2,6 +2,7 @@ import { browserHistory } from 'react-router'
 import $ from 'jquery'
 
 export default function logUserIn(formValues) {
+
   return function(dispatch) {
     // dispatch({type: 'CREATE_USER'})
 

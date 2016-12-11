@@ -78,14 +78,14 @@ class PostForm extends Component {
       return (
         <Row>
           <Col lg={10} md={10} sm={10} xs={12}>
-            <Form inline onSubmit={this.handleOnSubmit.bind(this)}>
+            <form onSubmit={this.handleOnSubmit.bind(this)}>
               <FormGroup>
                 <ControlLabel>Post a status</ControlLabel>
                 <FormControl type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
               </FormGroup>
 
               <Button type="submit">Post</Button>
-            </Form>
+            </form>
           </Col>
         </Row>
       )
@@ -114,17 +114,13 @@ class PostForm extends Component {
     }
   }
 
-  // <div>
-
-  //   {/* <MyDropZone /> */}
-
 
   render() {
     let dropdownPoster = this.dropdown(this.props.posterMethod)
-
+    //ISSUE:: Post/Delete image results in errors
     return (
       <div>
-        <Row>
+        <Row className="spaceBottomM">
           <Col lg={6} md={6} sm={6}>
             <ButtonGroup>
               <Button value="text" onClick={this.handlePost.bind(this)}>Message</Button>

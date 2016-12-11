@@ -7,10 +7,13 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Board from './components/Board'
 import Welcome from './components/Welcome'
+import FastLogin from './components/FastLogin'
+
 
 
 export default (
  <Route path="/" component={App} >
+    <Route path="/" component={FastLogin}/>
     <Route path="welcome" component={Welcome} />
    <Route path="signup" component={Signup} />
    <Route path="profile" component={Profile} />

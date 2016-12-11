@@ -4,7 +4,6 @@ export default function posts(state = [], action){
       return Object.assign([], state, action.currentBoard.posts)
     case 'UPDATE_POSTS':
       return action.posts
-
     default:
       return state
   }

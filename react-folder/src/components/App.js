@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Nav from './Nav'
 import { Grid } from 'react-bootstrap'
+import Nav from './Nav'
+import FastLogin from './FastLogin'
 import $ from 'jquery'
 // import '../App.css';
 
@@ -33,6 +34,7 @@ class App extends Component {
     return (
         <Grid>
           <Nav />
+          <FastLogin />
           <div className="childrens">
             {this.props.children}
           </div>

@@ -18,6 +18,10 @@ body {
   background-color: rgba(149, 172, 178, 0.67);
 }
 
+.postContent {
+  background-color: rgba(219, 247, 255, 0.87);
+}
+
 .spaceBottomXL {
   padding-bottom: 6em;
 }
@@ -28,4 +32,8 @@ body {
 
 .spaceTopM {
   padding-top: 2em;
+}
+
+.spaceLeftM {
+  padding-left: 2em;
 }
