@@ -10,15 +10,15 @@ import boardRequest from '../actions/boardRequest'
 import submitImage from '../actions/submitImage'
 import postMethod from '../actions/postMethod'
 
-const CLOUDINARY_UPLOAD_PRESET = 'zprfewb9';
-const CLOUDINARY_UPLOAD_URL = '	https://api.cloudinary.com/v1_1/dzs7addex/upload';
+// const CLOUDINARY_UPLOAD_PRESET = 'zprfewb9';
+// const CLOUDINARY_UPLOAD_URL = '	https://api.cloudinary.com/v1_1/dzs7addex/upload';
 
 class PostForm extends Component {
   constructor(props){
     super(props);
     this.state = {
       content: "",
-      uploadedFileCloudinaryUrl: '',
+      // uploadedFileCloudinaryUrl: '',
       imageUrl: "",
       postMethod: ""
     }
@@ -76,39 +76,21 @@ class PostForm extends Component {
   dropdown(method){
     if (method === "text") {
       return (
-        <Row>
-          <Col lg={10} md={10} sm={10} xs={12}>
             <form onSubmit={this.handleOnSubmit.bind(this)}>
               <FormGroup>
-                <ControlLabel>Post a status</ControlLabel>
+                <ControlLabel className="whiteText">Post a status</ControlLabel>
                 <FormControl type="text" onChange={this.handleStatusChange.bind(this)} value={this.state.content}/>
               </FormGroup>
 
               <Button type="submit">Post</Button>
             </form>
-          </Col>
-        </Row>
       )
     } else if (method === "image") {
       return (
-        <Row>
-          <Col lg={3} md={3} sm={3} xs={3}>
             <Dropzone multiple={false} accept="image/*" onDrop={this.onImageDrop.bind(this)}>
-              <h3>Drop an image or click to select a file to upload.</h3>
+              <h3 className="whiteText">Drop an image or click to select a file to upload.</h3>
             </Dropzone>
-          </Col>
-          <Col lg={6} md={6} sm={6} xs ={6}>
-              {this.state.imageUrl === '' ? null : <div>
-              <Col lg={11} md={11} sm={11} xs ={11}>
-                <img src={this.state.imageUrl} className = "img img-responsive"/>
-              </Col>
-              <Col lg={1} md={1} sm={1} xs ={1}>
-                <Button value={this.state.imageUrl} onClick={this.handleSubmitImage.bind(this)}>Post Image</Button>
-              </Col>
-            </div>}
-          </Col>
-        </Row>
-      )
+          )
     } else {
       return <div></div>
     }
@@ -121,14 +103,26 @@ class PostForm extends Component {
     return (
       <div>
         <Row className="spaceBottomM">
-          <Col lg={6} md={6} sm={6}>
+          <Col lg={8} md={8} sm={8} xs={8} lgOffset={2} mdOffset={2} smOffset={2} xsOffset={2}>
             <ButtonGroup>
               <Button value="text" onClick={this.handlePost.bind(this)}>Message</Button>
               <Button value="image" onClick={this.handlePost.bind(this)}>Photo</Button>
             </ButtonGroup>
           </Col>
         </Row>
-      {dropdownPoster}
+        <Row className="spaceBottomM">
+          <Col lg={8} md={8} sm={8} xs={8} lgOffset={2} mdOffset={2} smOffset={2} xsOffset={2}>
+            {dropdownPoster}
+          </Col>
+          <Col lg={2} md={2} sm={2} xs ={2}>
+              {this.state.imageUrl === '' ? null :
+               <div>
+                <img src={this.state.imageUrl} className = "img img-responsive"/>
+                <Button value={this.state.imageUrl} onClick={this.handleSubmitImage.bind(this)}>Post Image</Button>
+              </div>
+              }
+            </Col>
+        </Row>
     </div>
     )
   }

@@ -6,14 +6,24 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.whiteText {
+  color: rgba(236, 240, 241,1.0);
+}
+
 h1 {
   font-family:'Josefin Slab', serif;
   font-size: 8em;
   font-weight: bold;
+  color: rgba(192, 57, 43,1.0);
+}
+
+h2 {
+  color: rgba(192, 57, 43,1.0);
 }
 
 h3 {
-  font-family: 'Arvo', serif
+  font-family: 'Arvo', serif;
+
 }
 
 h5 {
