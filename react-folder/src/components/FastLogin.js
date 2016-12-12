@@ -8,7 +8,6 @@ import boardRequest from '../actions/boardRequest'
 class FastLogin extends Component {
   handleOnClick(event){
     this.props.logUserIn({email: "drew@d.com", password:"me"})
-    this.props.boardRequest(1)
   }
 
   render(){

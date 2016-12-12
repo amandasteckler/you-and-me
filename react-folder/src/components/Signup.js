@@ -33,20 +33,20 @@ class Signup extends Component {
     return(
       <Row>
         <Col lg={3} md={3} sm={3}>
-          <h4>Sign Up</h4>
+          <h4 className="whiteText">Sign Up</h4>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <FormGroup>
-              <ControlLabel>Name</ControlLabel>
+              <ControlLabel className="whiteText">Name</ControlLabel>
               <FormControl type="text" placeholder="enter name" onChange={this.handleNameChange.bind(this)}/>
             </FormGroup>
 
             <FormGroup>
-              <ControlLabel>Email</ControlLabel>
+              <ControlLabel className="whiteText">Email</ControlLabel>
               <FormControl type="text" placeholder="enter email" onChange={this.handleEmailChange.bind(this)}/>
             </FormGroup>
 
             <FormGroup>
-              <ControlLabel>Password</ControlLabel>
+              <ControlLabel className="whiteText">Password</ControlLabel>
               <FormControl type="password" placeholder="enter password" onChange={this.handlePasswordChange.bind(this)}/>
             </FormGroup>
 

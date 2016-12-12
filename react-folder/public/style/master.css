@@ -44,9 +44,17 @@ body {
   border-top: .1em dashed rgba(192, 57, 43,1.0);
 }
 
+.borderBottomAccent {
+  border-bottom: .1em dashed rgba(192, 57, 43,1.0);
+}
+
 .deleteButton {
   margin-top: 1em;
   margin-right: 1em;
+}
+
+.deleteBoard {
+  padding-top: 2.73em;
 }
 
 .spaceBottomXL {

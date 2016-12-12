@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {Link} from 'react-router'
+import { Row, Col, FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap'
 import boardRequest from '../actions/boardRequest'
-import boardDelete from '../actions/boardDelete'
+// import boardDelete from '../actions/boardDelete'
 import createBoard from '../actions/createBoard'
 import deleteUserAccount from '../actions/deleteUserAccount'
 // import auth from '../../lib/auth'
@@ -38,13 +39,6 @@ class Profile extends Component {
     this.setState({title: '', otherUserEmail: ''})
   }
 
-  handleDelete(event) {
-    event.preventDefault();
-    // value.value = board id
-    // class.value = user id
-    this.props.boardDelete(event.target.attributes.value.value, event.target.attributes.class.value);
-  }
-
   handleDeleteAccount(event) {
     event.preventDefault();
     this.props.deleteUserAccount(event.target.attributes.value.value)
@@ -53,30 +47,43 @@ class Profile extends Component {
 
   render(){
     let boards = this.props.boards.map((board) => {
-      return <li><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link> <button onClick={this.handleDelete.bind(this)} value={board.id} className={this.props.currentUser.id} className="btn btn-danger">Delete Board</button></li>
+
+      return (<Col className="borderBottomAccent lightBox spaceBottomS spaceTopS">
+        <h3><Link onClick={this.handleOnClick.bind(this)} value={board.id}>{board.title}</Link></h3>
+      </Col>)
     })
 
-    return(
-      <div>
-        <h1>Welcome, {this.props.currentUser.name}.</h1>
+    //CREATE NEW BOARD
+    // <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
+    //   <label>Create New Board: </label>
+    //   <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
+    //   <input type="text" placeholder="Other User's Email" onChange={this.handleOtherUserChange.bind(this)} value={this.state.otherUserEmail} />
+    //   <input type="submit" value="Create!" />
+    // </form>
 
-        <form onSubmit={this.handleCreate.bind(this)} value={this.props.currentUser.id}>
-          <label>Create New Board: </label>
-          <input type="text" placeholder="Board Title" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
-          <input type="text" placeholder="Other User's Email" onChange={this.handleOtherUserChange.bind(this)} value={this.state.otherUserEmail} />
-          <input type="submit" value="Create!" />
-        </form>
-        <h2>Your Boards:</h2>
-        <div>
 
-          <ul>
-            {boards}
-          </ul>
-        </div>
-        <p>Delete your Account</p>
-          <button onClick={this.handleDeleteAccount.bind(this)} value={this.props.currentUser.id}>Delete</button>
-      </div>
-    )
+    //DELETE ACCOUNT Button
+    // <p>Delete your Account</p>
+    //   <button onClick={this.handleDeleteAccount.bind(this)} value={this.props.currentUser.id}>Delete</button>
+
+    return(<div className="text-center">
+      <Row>
+        <Col lg={12} md={12} sm={12} xs={12}>
+          <h1>Welcome, {this.props.currentUser.name}.</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={8} md={8} sm={8} xs={8} lgOffset={2} mdOffset={2} smOffset={2} xsOffset={2} className="blueBox spaceTopS spaceBottomS">
+
+          <h2>Your Boards:</h2>
+            <div>
+            <Col lg={8} md={8} sm={8} xs={8} lgOffset={2} mdOffset={2} smOffset={2} xsOffset={2}>
+                {boards}
+            </Col>
+            </div>
+        </Col>
+      </Row>
+    </div>)
   }
 
   // user's name
@@ -90,7 +97,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ boardRequest, boardDelete, createBoard, deleteUserAccount }, dispatch)
+  return bindActionCreators({ boardRequest, createBoard, deleteUserAccount }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

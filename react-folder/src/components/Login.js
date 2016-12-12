@@ -28,10 +28,10 @@ class Login extends Component {
     return (
     <Row>
       <Col lg={3} md={3} sm={3}>
-        <h4>Log In</h4>
+        <h4 className="whiteText">Log In</h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <FormGroup>
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel className="whiteText">Email</ControlLabel>
             <FormControl
               type="text"
               placeholder="enter email"
@@ -39,7 +39,7 @@ class Login extends Component {
             <HelpBlock>Ex: you@uandme.com</HelpBlock>
           </FormGroup>
           <FormGroup>
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel className="whiteText">Password</ControlLabel>
             <FormControl
             type="password"
             placeholder="enter password"

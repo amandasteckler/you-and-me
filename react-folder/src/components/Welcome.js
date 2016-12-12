@@ -32,7 +32,7 @@ class Welcome extends Component {
       <div className="spaceBottomXL">
         <Row>
           <Col lg={12}>
-            <h3>An intimate social media</h3>
+            <h3 className="whiteText">An intimate social media</h3>
             <h1 className="text-center headline">u & i</h1>
           </Col>
         </Row>

@@ -7,6 +7,7 @@ import Posts from './Posts'
 import PostForm from './PostForm'
 import updateBoard from '../actions/updateBoard'
 import postMethod from '../actions/postMethod'
+import boardDelete from '../actions/boardDelete'
 
 class Board extends Component {
 
@@ -30,17 +31,30 @@ class Board extends Component {
     this.props.postMethod("editing")
   }
 
+  handleDelete(event) {
+    // value.value = board id
+      // event.target.attributes.value.value
+    // class.value = user id
+      // event.target.attributes.class.value
+    this.props.boardDelete(this.props.board.id, this.props.currentUserID);
+  }
+
   dropdown(method){
     if (method === "editing") {
-      return (
-        <form className="spaceTopS" onSubmit={this.handleEditTitle.bind(this)}>
-          <FormGroup>
-            <ControlLabel className= "whiteText">Edit Title</ControlLabel>
-            <FormControl type="text" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
-          </FormGroup>
-          <Button type='submit'>Edit</Button>
-        </form>
-      )
+      return (<div>
+        <Col lg={11} md={11} sm={11} xs={11}>
+          <form className="spaceTopS" onSubmit={this.handleEditTitle.bind(this)}>
+            <FormGroup>
+              <ControlLabel className= "whiteText">Edit Title</ControlLabel>
+              <FormControl type="text" onChange={this.handleTitleChange.bind(this)} value={this.state.title} />
+            </FormGroup>
+            <Button type='submit'>Edit</Button>
+          </form>
+        </Col>
+        <Col lg={1} md={1} sm={1} xs={1} className="deleteBoard">
+          <Button onClick={this.handleDelete.bind(this)} value={this.props.board.id} className={this.props.currentUserID} bsStyle="danger">Delete Board</Button>
+        </Col>
+    </div>)
     } else {
       return(<div></div>)
     }
@@ -79,7 +93,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ updateBoard, postMethod }, dispatch)
+  return bindActionCreators({ updateBoard, boardDelete, postMethod }, dispatch)
 }
 
 
