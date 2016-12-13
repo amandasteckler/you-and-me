@@ -5,7 +5,7 @@ export default function boards(state = [], action){
     case 'UPDATE_USER_BOARDS':
       return Object.assign([], action.boards)
     case 'UPDATE_BOARD':
-      return state
+      return action.boards
     default:
       return state
     }

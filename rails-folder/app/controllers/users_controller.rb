@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create, :destroy]
+  skip_before_action :authenticate_user
 
   def new
     user = User.new(user_params)
@@ -33,7 +33,8 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(name: params[:name], email: params[:email], password: params[:password])
+    user.update(name: params[:name])
+    render json: {name: user.name}
   end
 
   def destroy

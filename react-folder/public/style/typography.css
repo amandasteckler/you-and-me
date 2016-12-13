@@ -10,6 +10,10 @@ body {
   color: rgba(236, 240, 241,1.0);
 }
 
+.largerText {
+  font-size: 1.83em;
+}
+
 h1 {
   font-family:'Josefin Slab', serif;
   font-size: 8em;

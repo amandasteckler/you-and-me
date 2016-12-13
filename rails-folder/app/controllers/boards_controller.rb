@@ -6,6 +6,7 @@ class BoardsController < ApplicationController
   end
 
   def create
+    byebug
     board = Board.new(title: params[:title])
     user = User.find(params[:user_id])
     other_user_email = params[:other_user_email]

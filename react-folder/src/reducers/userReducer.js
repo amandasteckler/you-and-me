@@ -12,6 +12,8 @@ export default function currentUser(state = {id: null, name: null, userBoardID: 
       return Object.assign({}, state, {userBoardID: userBoard.id})
     case 'LOGOUT_USER':
         return {id: null, name: null, userBoardID: null, loggedIn: false}
+    case 'UPDATE_NAME':
+        return Object.assign({}, state, {name: action.name})
     default:
       return state
   }
