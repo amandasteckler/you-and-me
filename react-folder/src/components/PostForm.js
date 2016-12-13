@@ -33,6 +33,7 @@ class PostForm extends Component {
   }
 
   handleImageUpload(file) {
+//     lets move this logic in this method to an action creator.
   let upload = request.post(`http://localhost:3000/images/new`)
                       // .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
                       .field('file', file);
@@ -66,6 +67,7 @@ class PostForm extends Component {
 
   handleSubmitImage(event) {
     event.preventDefault()
+//     possible to get this data event.target.attributes.value.value from the state, instead of from the dom?
     this.props.submitImage(event.target.attributes.value.value, this.props.userBoardID)
     this.setState({imageUrl: ""})
   }
@@ -77,6 +79,7 @@ class PostForm extends Component {
   dropdown(method){
     if (method === "text") {
       return (
+//         this could be its own component
             <form onSubmit={this.handleOnSubmit.bind(this)}>
               <FormGroup>
                 <ControlLabel className="whiteText">Post a status</ControlLabel>
