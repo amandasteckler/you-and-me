@@ -36,6 +36,7 @@ class Profile extends Component {
   }
 
   handleCreate(event) {
+    event.preventDefault()
     // passing in state, which is just title, as well as current user id
     this.props.createBoard(this.state.title, this.state.otherUserEmail, this.props.currentUser.id)
     this.setState({title: '', otherUserEmail: ''})
