@@ -20,7 +20,8 @@ class PostForm extends Component {
       content: "",
       // uploadedFileCloudinaryUrl: '',
       imageUrl: "",
-      postMethod: ""
+      postMethod: "",
+      uploadedFile: ""
     }
   }
 

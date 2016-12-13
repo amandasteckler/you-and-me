@@ -9,7 +9,6 @@ export default function boardRequest(formValue) {
     //  data: { item: item },
     //  success: () => { return{type:"FETCH_BOARD", payload: board}}
   }).done(function(response){
-    debugger
     dispatch({type:"FETCH_BOARD", currentBoard: response.board})
     browserHistory.push('/board')
   })

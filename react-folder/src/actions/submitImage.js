@@ -10,6 +10,7 @@ export default function submitImage(imageUrl, userBoardID) {
      contentType: 'application/json; charset=utf-8'
    }).done(
      (response) => {
+       debugger
        dispatch({type:"UPDATE_IMAGES", images: response.images});
      }
    )

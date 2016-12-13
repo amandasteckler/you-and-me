@@ -3,6 +3,7 @@ export default function images(state = [], action){
     case "FETCH_BOARD":
       return action.currentBoard.images
     case "UPDATE_IMAGES":
+      debugger
       return action.images
     default:
       return state
