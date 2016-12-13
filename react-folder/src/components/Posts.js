@@ -20,6 +20,7 @@ class Posts extends Component {
 
   allMediaOrdered(posts, images){
     let flattened = posts.concat(images);
+//     logic like this should probably be in rails.
     flattened.sort((a, b)=>{
       a = new Date(a.createAt)
       b = new Date(b.createAt)
@@ -33,6 +34,7 @@ class Posts extends Component {
     let list = timeline.map((status) =>{
       switch (status.type) {
         case "text":
+//           each of these cast statements should render a new component.
         if (status.userID === currentUserID) {
           return (
           <div className="lightBox">
