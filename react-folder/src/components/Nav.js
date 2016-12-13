@@ -8,9 +8,9 @@ class Nav extends Component {
 
   navList(){
     if (this.props.currentUser.loggedIn === true) {
-      return [{name: "Home", URI:"/"}, {name: "Boards", URI: "/profile"}, {name: "Profile", URI: "/profile"}, {name: "Log Out", URI: "/logout"}]
+      return [{name: "Home", URI:"/"}, {name: "Profile", URI: "profile"}, {name: "Log Out", URI: "logout"}]
     } else {
-      return [{name: "Home", URI: "/welcome"}, {name: "Login", URI: "login"}, {name:"Signup", URI:"signup"}]
+      return [{name: "Home", URI: "/"}, {name: "Login", URI: "login"}, {name:"Signup", URI:"signup"}]
     }
   }
 

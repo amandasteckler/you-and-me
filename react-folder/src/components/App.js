@@ -34,7 +34,6 @@ class App extends Component {
     return (
         <Grid>
           <Nav />
-          <FastLogin />
           <div className="childrens">
             {this.props.children}
           </div>

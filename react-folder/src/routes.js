@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import Signup from './components/Signup'
 import Profile from './components/Profile'
@@ -11,14 +11,14 @@ import FastLogin from './components/FastLogin'
 
 
 
+
 export default (
  <Route path="/" component={App} >
-    <Route path="/" component={FastLogin}/>
-    <Route path="welcome" component={Welcome} />
-   <Route path="signup" component={Signup} />
-   <Route path="profile" component={Profile} />
-   <Route path="login" component={Login}/>
-   <Route path="board" component={Board} />
-   <Route path="logout" component={Logout} />
+  <IndexRoute component={Welcome}/>
+  <Route path="signup" component={Signup} />
+  <Route path="profile" component={Profile} />
+  <Route path="login" component={Login}/>
+  <Route path="board" component={Board} />
+  <Route path="logout" component={Logout} />
  </ Route>
 );

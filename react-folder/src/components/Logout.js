@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import logUserOut from '../actions/logUserOut'
+import { Row, Col, Button } from 'react-bootstrap'
 
 class Logout extends Component {
 
@@ -16,11 +17,13 @@ class Logout extends Component {
 
   render() {
     return (
-      <div>
-        <p>Are you sure you want to log out?</p>
-        <button onClick={this.handleYes.bind(this)}>Yes</button>
-        <button onClick={this.handleNo.bind(this)}>No</button>
-      </div>
+      <Row>
+        <Col lg={12} md={12} sm={12} xs={12}>
+        <p className="whiteText">Are you sure you want to log out?</p>
+        <Button onClick={this.handleYes.bind(this)}>Yes</Button>
+        <Button onClick={this.handleNo.bind(this)}>No</Button>
+        </Col>
+      </Row>
     )
   }
 }
