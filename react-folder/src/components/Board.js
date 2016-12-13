@@ -40,6 +40,7 @@ class Board extends Component {
   }
 
   dropdown(method){
+//     just move this into a component called dropdown.
     if (method === "editing") {
       return (<div>
         <Col lg={11} md={11} sm={11} xs={11}>
@@ -76,6 +77,7 @@ class Board extends Component {
       <Row className="spaceBottomXL">
         <Col lg={12} md={12} sm={12} xs={12}>
           <h1 className="text-center">{this.props.board.title}</h1>
+
           <h2 className="text-center">This board is between: {this.props.board.users[0].name} & {this.props.board.users[1].name}</h2>
         </Col>
       </Row>
@@ -89,6 +91,7 @@ class Board extends Component {
 }
 
 function mapStateToProps(state) {
+//   if you map add keys user_one, user_two here then you don't have to do this.props.board.users[0].name above in your component.
   return {board: state.currentBoard, currentUserID: state.currentUser.id, editing: state.status.method}
 }
 
