@@ -12,11 +12,13 @@ class BoardsController < ApplicationController
     other_user_email = params[:other_user_email]
     other_user = User.find_by(email: other_user_email)
 
+   # Do you use user_board_one and two anywhere?
     if board.save
       user_board_one = UserBoard.create(user_id: user.id, board_id: board.id)
       user_board_two = UserBoard.create(user_id: other_user.id, board_id: board.id)
     end
-
+    
+    # Could be a view object. ViewObject.new(boards)
     new_user_boards = user.boards.map do |board|
       {title: board.title, id: board.id}
     end
@@ -50,6 +52,7 @@ class BoardsController < ApplicationController
 
     posts = OrderedPosts.new.sort_with_user(board)
 
+    # Lines 55-60: we don't need to be mapping in our controller. Move to a service object that takes in a user and a boards and sorts them.
     users = board.users.map {|user| {id: user.id, name: user.name}}
 
     sorted_boards = current_user.boards.sort_by &:created_at
@@ -66,6 +69,7 @@ class BoardsController < ApplicationController
     @user = User.find(params[:user_id])
     @board = Board.find(params[:id])
     @board.destroy
+    # same as above
     new_boards = @user.boards.map do |board|
       {title: board.title, id: board.id}
     end
