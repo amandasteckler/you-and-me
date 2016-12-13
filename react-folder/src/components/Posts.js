@@ -15,7 +15,7 @@ class Posts extends Component {
   }
 
   handleDeleteImage(event){
-    this.props.deleteImage(event.target.value, this.props.currentBoardID)
+    this.props.deleteImage(event.target.attributes.value.value, this.props.currentBoardID)
   }
 
   allMediaOrdered(posts, images){
