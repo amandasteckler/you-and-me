@@ -14,7 +14,6 @@ amanda = User.create(name: "Amanda", email: "amanda@a.com", password_digest: "$2
 thomas = User.create(name: "Thomas", email: "thomas@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 kim = User.create(name: "Kim", email: "kim@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 sam = User.create(name: "Sam", email: "sam@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
-carmen = User.create(name: "Carmen", email: "carmen@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 #
 
 amanda_board_connection = UserBoard.create(user_id: amanda.id, board_id: amanda_drew_board.id)
@@ -28,8 +27,6 @@ thomas_kim_board_connection = UserBoard.create(user_id: thomas.id, board_id: tho
 kim_thomas_board_connection = UserBoard.create(user_id: kim.id, board_id: thomas_kim_board.id)
 kim_sam_board_connection = UserBoard.create(user_id: kim.id, board_id: kim_sam_board.id)
 sam_kim_board_connection = UserBoard.create(user_id: sam.id, board_id: kim_sam_board.id)
-kim_carmen_board_connection = UserBoard.create(user_id: kim.id, board_id: kim_carmen_board.id)
-carmen_kim_board_connection = UserBoard.create(user_id: carmen.id, board_id: kim_carmen_board.id)
 
 #
 
