@@ -4,6 +4,7 @@ amanda_drew_board = Board.create(title: "Amanda & Drew: BFFFFFFs")
 #seeds for demo
 thomas_kim_board = Board.create(title: "Spring 2017 Ready-to-Wear")
 kim_sam_board = Board.create(title: "Travel Photos")
+kim_carmen_board = Board.create(title: "RuPaul's Drag Race GIFs")
 #
 
 scott = User.create(name: "Scott", email: "scott@s.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
@@ -14,6 +15,8 @@ amanda = User.create(name: "Amanda", email: "amanda@a.com", password_digest: "$2
 thomas = User.create(name: "Thomas", email: "thomas@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 kim = User.create(name: "Kim", email: "kim@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
 sam = User.create(name: "Sam", email: "sam@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
+carmen = User.create(name: "Carmen", email: "carmen@gmail.com", password_digest: "$2a$10$MZXVHK8cKhoAbNqTYp6dYusRDBpcFmglP59UskQxklE/Lq0lPuxnq")
+
 #
 
 amanda_board_connection = UserBoard.create(user_id: amanda.id, board_id: amanda_drew_board.id)
@@ -27,7 +30,8 @@ thomas_kim_board_connection = UserBoard.create(user_id: thomas.id, board_id: tho
 kim_thomas_board_connection = UserBoard.create(user_id: kim.id, board_id: thomas_kim_board.id)
 kim_sam_board_connection = UserBoard.create(user_id: kim.id, board_id: kim_sam_board.id)
 sam_kim_board_connection = UserBoard.create(user_id: sam.id, board_id: kim_sam_board.id)
-
+kim_carmen_board_connection = UserBoard.create(user_id: kim.id, board_id: kim_carmen_board.id)
+carmen_kim_board_connection = UserBoard.create(user_id: carmen.id, board_id: kim_carmen_board.id)
 #
 
 scott_first_post = Post.create(content: "Hey Drew. Hope you're well.", user_board_id: scott_board_connection.id)
@@ -73,3 +77,12 @@ sam_fourth_travel_image = Image.create(url: "http://res.cloudinary.com/dzs7addex
 kim_second_travel_post = Post.create(content: "Wow Sam... Those are some great pictures... Are you sure you took them all...?", user_board_id: kim_sam_board_connection.id)
 
 ####
+
+kim_first_rupaul_image = Image.create(url: "http://res.cloudinary.com/dzs7addex/image/upload/v1481738083/latrice_jjtws6.gif", user_board_id: kim_carmen_board_connection.id)
+kim_first_rupaul_post = Post.create(content: "When you complain to me about working at Google:", user_board_id: kim_carmen_board_connection.id)
+carmen_first_rupaul_image = Image.create(url: "http://res.cloudinary.com/dzs7addex/image/upload/v1481829725/detox_gdp9xk.gif", user_board_id: carmen_kim_board_connection.id)
+carmen_first_rupaul_post = Post.create(content: "When you complain to me about wearing 2-inch heels:", user_board_id: carmen_kim_board_connection.id)
+kim_second_rupaul_image = Image.create(url: "http://res.cloudinary.com/dzs7addex/image/upload/v1481830030/willam_adal8i.gif", user_board_id: kim_carmen_board_connection.id)
+kim_second_rupaul_post = Post.create(content: "When my cat tried to sit with you instead of me:", user_board_id: kim_carmen_board_connection.id)
+carmen_first_rupaul_image = Image.create(url: "http://res.cloudinary.com/dzs7addex/image/upload/v1481830561/roxxxy_hlc7ua.gif", user_board_id: carmen_kim_board_connection.id)
+carmen_first_rupaul_post = Post.create(content: "Me at my last presentation:", user_board_id: carmen_kim_board_connection.id)
