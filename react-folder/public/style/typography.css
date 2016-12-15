@@ -8,10 +8,19 @@ body {
 
 .whiteText {
   color: rgba(236, 240, 241,1.0);
+  text-decoration: none;
 }
 
 .largerText {
   font-size: 1.83em;
+}
+
+.headline {
+  font-size: 6.5em;
+}
+
+.uandi {
+  font-size: 12em;
 }
 
 h1 {

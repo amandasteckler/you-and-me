@@ -64,7 +64,7 @@ class Profile extends Component {
 
   dropdown(method){
     if (method === "editing") {
-      return (<div>
+      return (<div className="text-left">
         <Col lg={11} md={11} sm={11} xs={11}>
           <form className="spaceTopS" onSubmit={this.handleEditUserName.bind(this)}>
             <FormGroup>
@@ -95,7 +95,7 @@ class Profile extends Component {
     return(<div className="text-center">
       <Row>
         <Col lg={6} md={6} sm={6} xs={6}>
-        <Button bsSize="small" onClick={this.handleEditDropdown.bind(this)}>
+        <Button className="text-left" bsSize="small" onClick={this.handleEditDropdown.bind(this)}>
           <span className="glyphicon glyphicon-cog" aria-hidden="true" value="editing"></span>
         </Button>
         {dropdownEdit}
