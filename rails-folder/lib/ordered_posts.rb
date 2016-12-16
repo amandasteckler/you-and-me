@@ -1,3 +1,7 @@
+# This is really interesting - you're implementing a view object - so 
+# I would instead initialize this with a board, and then call render which would return the json.
+# Also move this to app/view_objects/....rb
+
 class OrderedPosts
 
   def sort_with_user(board)
