@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class Image extends Component {
-
+// remove this file?
   render() {
 
     return ()
