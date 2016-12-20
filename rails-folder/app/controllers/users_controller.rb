@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
       render json: {jwt: jwt, current_user: {user_id: user.id, user_name: username}}
     else
+      # I really like this idea, but instead what I would do is send back a list of the user errors, 
+      # so render json: {errors: user.errors}
       render json: {error: "user is not unique"}, status: 404
     end
   end
