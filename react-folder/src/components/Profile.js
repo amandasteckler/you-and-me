@@ -11,6 +11,8 @@ import deleteUserAccount from '../actions/deleteUserAccount'
 import updateName from '../actions/updateName'
 // import auth from '../../lib/auth'
 
+
+// should break this into multiple components.
 class Profile extends Component {
 
   constructor(props){
