@@ -10,7 +10,8 @@ skip_before_action :authenticate_user, only: [:create]
       boards = sorted_boards.map do |board|
         {title: board.title, id: board.id}
       end
-
+      
+      # Move into a method on the user model..
       if user.name == user.name.capitalize
         username = user.name
       else
